@@ -1,24 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Content: HTML</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hugo Book – Site</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="./asset/styles.css">
 </head>
+
 <body>
 
-    <img src="./img/html.png"/>
-    <h1>The Content: HTML</h1>
-    <p><strong>HTML</strong> (HyperText Markup Language) provides the structure of a webpage. It defines the content, such as headings, paragraphs, and images. Think of HTML as the skeleton — it sets up the foundation but doesn’t specify how things should look or behave.</p>
+  <div class="container">
+    <header id="header-menu">
+      <button class="hamburger-btn" onclick="toggleSidebar()" aria-label="Toggle menu">
+        <i class="bi bi-list fs-4"></i> <a href="#" class="logo-brand">Hugo Book</a>
+      </button>
+      <nav aria-label="breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
+          <li class="breadcrumb-item"><a href="#">Section</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Current Page</li>
+        </ol>
+      </nav>
+      <div id="bookOptionsPane" class="d-flex justify-content-end header-icon">
+        <button class="btn" onclick="openRightPanel('share')" title="Share">
+          <i class="bi bi-link-45deg"></i>
+        </button>
+        <button class="btn" onclick="openRightPanel('display')" title="Display Options">
+          <i class="bi bi-tv"></i>
+        </button>
+        <button class="btn" onclick="openRightPanel('book')" title="Book Info">
+          <i class="bi bi-book"></i>
+        </button>
+        <button class="btn" onclick="openRightPanel('clipboard')" title="Clipboard">
+          <i class="bi bi-clipboard"></i>
+        </button>
+        <a class="btn" href="#" onclick="openRightPanel('trophy'); return false;" role="button" title="Achievements">
+          <i class="bi bi-trophy"></i>
+        </a>
+        <a class="btn" href="#" onclick="openRightPanel('profile'); return false;" title="Profile">
+          <i class="bi bi-person-check"></i>
+        </a>
+        <button class="btn" onclick="openRightPanel('video')" title="Video Call">
+          <i class="bi bi-person-video2"></i>
+        </button>
+      </div>
+    </header>
 
-    <pre>
-        <code>
-        &lt;h1&gt;Welcome!&lt;/h1&gt;
-        &lt;p&gt;This is a basic web page.&lt;/p&gt;
-        </code>
-    </pre>
+    <div id="topbar">
+      <button class="btn btn-sm p-1" id="hamburger-mobile" onclick="toggleMobileSidebar()" aria-label="Toggle menu">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+      <a href="#" class="brand-mobile">Hugo Book</a>
+    </div>
 
-    <p>Now that we have the content, let's style it using <a href="./css.html">CSS</a>.</p>
+    <div id="sidebar-overlay" onclick="closeMobileSidebar()"></div>
+    <div id="right-panel-overlay" onclick="closeRightPanel()"></div>
+    <div id="right-panel" class="right-panel">
+      <div class="right-panel-header">
+        <h3 id="right-panel-title">Options</h3>
+        <button class="btn-close" onclick="closeRightPanel()" aria-label="Close">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+      <div class="right-panel-content" id="right-panel-content">
+        <!-- Content will be dynamically loaded here -->
+      </div>
+    </div>
 
+
+    <nav id="sidebar">
+      <div class="d-flex align-items-center px-4 pb-2 pt-1">
+        <a href="#" class="brand d-none">Hugo Book</a>
+      </div>
+
+      <div class="search-wrap">
+        <input type="search" placeholder="Search" aria-label="Search" />
+      </div>
+
+
+      <a class="lang-row" data-bs-toggle="collapse" href="#lang-collapse" role="button" aria-expanded="false">
+        <span><i class="bi bi-translate me-1"></i> English</span>
+        <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
+      </a>
+      <div class="collapse" id="lang-collapse">
+        <a href="#" class="sidebar-nav indent-1 d-block py-1 px-4"
+          style="font-family:var(--font-ui);font-size:.85rem;color:#555;text-decoration:none;">Chinese</a>
+        <a href="#" class="sidebar-nav indent-1 d-block py-1 px-4"
+          style="font-family:var(--font-ui);font-size:.85rem;color:#555;text-decoration:none;">Hebrew</a>
+      </div>
+
+      <div class="nav-section-label">Example Site</div>
+
+      <div class="sidebar-nav">
+
+        <a href="#" data-bs-toggle="collapse" data-bs-target="#toc-sub" aria-expanded="true" aria-controls="toc-sub">
+          Table of Contents
+          <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
+        </a>
+        <div class="collapse show" id="toc-sub">
+          <a href="#" class="indent-1 active">With ToC</a>
+          <a href="#" class="indent-1">Without ToC</a>
+        </div>
+
+
+        <a href="#" data-bs-toggle="collapse" data-bs-target="#collapsed-sub" aria-expanded="false"
+          aria-controls="collapsed-sub">
+          Collapsed
+          <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
+        </a>
+        <div class="collapse" id="collapsed-sub">
+          <a href="#" class="indent-1">3rd Level</a>
+          <a href="#" class="indent-2">4th Level</a>
+        </div>
+      </div>
+
+      <div class="nav-section-label">Shortcodes</div>
+
+      <div class="sidebar-nav">
+        <a href="#">Buttons</a>
+        <a href="#">Columns</a>
+        <a href="#">Details</a>
+
+
+        <a href="#" data-bs-toggle="collapse" data-bs-target="#exp-sub" aria-expanded="false" aria-controls="exp-sub">
+          Experimental
+          <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
+        </a>
+        <div class="collapse" id="exp-sub">
+          <a href="#" class="indent-1">Asciinema</a>
+          <a href="#" class="indent-1">Badges</a>
+          <a href="#" class="indent-1">Cards</a>
+          <a href="#" class="indent-1">Images</a>
+        </div>
+
+        <a href="#">Hints</a>
+        <a href="#">Mermaid</a>
+        <a href="#">Steps</a>
+        <a href="#">Tabs</a>
+        <a href="#">KaTeX</a>
+      </div>
+
+      <div class="sidebar-nav mt-2" style="border-top:1px solid #eee;padding-top:.5rem;">
+        <a href="#">Blog</a>
+        <a href="#">Github</a>
+        <a href="#">Hugo Themes</a>
+      </div>
+    </nav>
+
+
+    <div id="page-wrap">
+      <main id="content">
+        <h1>Caput vino delphine in tamen vias</h1>
+
+        <h2>Cognita laeva illo fracta</h2>
+        <p>
+          Lorem markdownum pavent auras, surgit nunc cingentibus libet <strong>Laomedonque que</strong> est.
+          Pastor <a href="#">An</a> arbor filia foedat, ne <a href="#">fugit aliter</a>, per. Helicona illas et
+          callida neptem est <em>Oresitrophos</em> caput, dentibus est venit. Tenet reddite
+          <a href="#">famuli</a> praesentem fortibus, quaeque vis foret si frondes <em>gelidos</em> gravidae
+          circumtulit <a href="#">inpulit armenta nativum</a>.
+        </p>
+
+        <ol>
+          <li>Te at cruciabere vides rubentis manebo</li>
+          <li>Maturuit in praetemptat ruborem ignara postquam habitasse</li>
+          <li>Subitarum supplevit quoque fontesque venabula spretis modo</li>
+          <li>Montis tot est mali quasque gravis</li>
+          <li>Quinquennem domus arsit ipse</li>
+          <li>Pellem turis pugnabant locavit</li>
+        </ol>
+
+        <h2>Natus quaerere</h2>
+        <p>
+          Pectora et sine mulcere, coniuge dum tincta incurvae. Quis iam; est dextra Peneosque, metuis a
+          verba, primo. Illa sed colloque suis: magno: gramen, aera excutiunt concipit.
+        </p>
+
+        <blockquote>
+          Phrygiae petendo suisque extimuit, super, pars quod audet! Turba negarem. Fuerat attonitus; et
+          dextra retinet sidera ulnas undas instimulat vacuae generis? <em>Agnus</em> dabat et ignotis
+          dextera, sic tibi pac <strong>feriente at mora</strong> euhoeque <em>comites hostem</em> vestras
+          Phineus. Vultuque sanguine dominoque <a href="#">metuit risi</a> fama vergit summaque meus
+          clarissimus artesque tinguebat successor nominis cervice caelicolae.
+        </blockquote>
+
+        <h2>Limitibus misere sit</h2>
+        <p>
+          Aurea non fata repertis praerupit feruntur simul, meae hosti lentaque <em>citius levibus</em>,
+          cum sede dixit, Phaethon texta. <em>Albentibus summos</em> multifidasque iungitur loquendi an
+          pectore, mihi ursaque omnia adfata, aeno parvumque in animi perlucentes. Epytus agis ait vixque
+          clamat ornum adversam spondet, quid sceptra ipsum <strong>est</strong>. Reseret nec; saeva suo
+          passu debentia linguam terga et aures et cervix <a href="#">de</a> ubera. Coercet gelidumque
+          manus, doluit volvitur induta?
+        </p>
+
+        <h2>Enim sua</h2>
+        <p>
+          Nec dis certa fuit socer, Nonacria <strong>dies</strong> manet tacitaque sibi? Sucis est iactata
+          Castrumque iudex, et iactato quoque terraeque es tandem et maternos vittis. Lumina litus bene
+          poenamque animos callem ne tuas in leones illam dea cadunt genus.
+        </p>
+
+        <h2>Germana aves pignus tecta</h2>
+        <p>
+          Sentiet et ferali errorem fessam, coercet superbus, Ascaniumque in pennis mediis; dolor? Vidit
+          imi <strong>Aeacon</strong> perfida propositos adde, tua Somni Fluctibus errante lustrat non.
+          Tamen inde, vos videt e flammis Scythica parantem rupisque pectora umbras.
+        </p>
+
+        <div class="page-meta mt-3">
+          <div class="nav-links">
+            <a href="#" class="prev-topic1"><i class="bi bi-calendar fs-6 text-dark"></i> January 1, 2026</a>
+            <a href="#" class="next-topic"><i class="bi bi-pencil-square fs-6 text-dark"></i> Edit this page</a>
+          </div>
+          <!-- <div class="published-date"></div>
+          <div class="edit-link"><a href="#"></a></div> -->
+          <div class="nav-links">
+            <a href="#" class="prev-topic"><i class="bi bi-arrow-left-circle text-dark"></i> Previous: Topic</a>
+            <a href="#" class="next-topic">Next: Topic <i class="bi bi-arrow-right-circle text-dark"></i></a>
+          </div>
+        </div>
+      </main>
+
+
+
+      <aside id="toc-panel">
+        <a href="#"
+          style="color:#333;font-weight:600;font-size:.8rem;font-family:var(--font-ui);text-decoration:none;display:block;margin-bottom:.6rem;">Table
+          of Contents</a>
+        <a href="#">Caput vino delphine in tamen vias</a>
+        <a href="#" class="sub">Cognita laeva illo fracta</a>
+        <a href="#" class="sub">Natus quaerere</a>
+        <a href="#" class="sub">Limitibus misere sit</a>
+        <a href="#" class="sub">Enim sua</a>
+        <a href="#" class="sub">Germana aves pignus tecta</a>
+      </aside>
+
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const wrap = document.getElementById('page-wrap');
+
+      // Check if mobile
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('open');
+        document.getElementById('sidebar-overlay').classList.toggle('open');
+      } else {
+        // Desktop behavior
+        sidebar.classList.toggle('nav-hidden');
+        wrap.classList.toggle('sidebar-collapsed');
+      }
+    }
+
+    function toggleMobileSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebar-overlay').classList.toggle('open');
+    }
+
+    function closeMobileSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('open');
+    }
+
+    function toggleDesktopSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const wrap = document.getElementById('page-wrap');
+      sidebar.classList.toggle('nav-hidden');
+      wrap.classList.toggle('sidebar-collapsed');
+    }
+
+
+    document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(el => {
+      const targetId = el.getAttribute('data-bs-target') || el.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      target.addEventListener('show.bs.collapse', () => el.setAttribute('aria-expanded', 'true'));
+      target.addEventListener('hide.bs.collapse', () => el.setAttribute('aria-expanded', 'false'));
+    });
+
+    // Right Panel Functions
+    const rightPanelContent = {
+      share: `
+        <div class="panel-section">
+          <div class="panel-section-title">Share This Page</div>
+          <a class="panel-item" onclick="copyLink()">
+            <i class="bi bi-link-45deg"></i>
+            <span>Copy Link</span>
+          </a>
+          <a class="panel-item" onclick="shareOnTwitter()">
+            <i class="bi bi-twitter"></i>
+            <span>Share on Twitter</span>
+          </a>
+          <a class="panel-item" onclick="shareOnFacebook()">
+            <i class="bi bi-facebook"></i>
+            <span>Share on Facebook</span>
+          </a>
+          <a class="panel-item" onclick="shareOnLinkedIn()">
+            <i class="bi bi-linkedin"></i>
+            <span>Share on LinkedIn</span>
+          </a>
+        </div>
+      `,
+      display: `
+        <div class="panel-section">
+          <div class="panel-section-title">Display Options</div>
+          <a class="panel-item">
+            <i class="bi bi-moon"></i>
+            <span>Dark Mode</span>
+          </a>
+          <a class="panel-item">
+            <i class="bi bi-zoom-in"></i>
+            <span>Increase Font Size</span>
+          </a>
+          <a class="panel-item">
+            <i class="bi bi-zoom-out"></i>
+            <span>Decrease Font Size</span>
+          </a>
+        </div>
+      `,
+      book: `
+        <div class="panel-section">
+          <div class="panel-section-title">Book Information</div>
+          <div style="font-family: var(--font-ui); font-size: 0.9rem; color: #555; line-height: 1.6;">
+            <p><strong>Title:</strong> Hugo Book</p>
+            <p><strong>Author:</strong> Hugo Team</p>
+            <p><strong>Version:</strong> 1.0.0</p>
+            <p><strong>License:</strong> MIT</p>
+          </div>
+        </div>
+      `,
+      clipboard: `
+        <div class="panel-section">
+          <div class="panel-section-title">Clipboard</div>
+          <a class="panel-item" onclick="copyPageTitle()">
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Copy Page Title</span>
+          </a>
+          <a class="panel-item" onclick="copyPageURL()">
+            <i class="bi bi-link"></i>
+            <span>Copy Page URL</span>
+          </a>
+          <a class="panel-item" onclick="copyPageMarkdown()">
+            <i class="bi bi-markdown"></i>
+            <span>Copy as Markdown</span>
+          </a>
+        </div>
+      `,
+      trophy: `
+        <div class="panel-section">
+          <div class="panel-section-title">Achievements</div>
+          <div style="font-family: var(--font-ui); font-size: 0.9rem; text-align: center; padding: 2rem 0;">
+            <i class="bi bi-trophy" style="font-size: 2rem; color: #ffc107; margin-bottom: 1rem; display: block;"></i>
+            <p>No achievements yet. Keep exploring!</p>
+          </div>
+        </div>
+      `,
+      profile: `
+        <div class="panel-section">
+          <div class="panel-section-title">User Profile</div>
+          <div style="text-align: center; padding: 2rem 0;">
+            <div style="width: 60px; height: 60px; border-radius: 50%; background: #e0e0e0; margin: 0 auto 1rem;"></div>
+            <p style="font-family: var(--font-ui); font-weight: 600; margin: 0.5rem 0;">Guest User</p>
+            <p style="font-family: var(--font-ui); font-size: 0.85rem; color: #777; margin: 0;">Sign in to save progress</p>
+          </div>
+          <a class="panel-item" style="justify-content: center; background: #0066cc; color: white;">
+            <span>Sign In</span>
+          </a>
+        </div>
+      `,
+      video: `
+        <div class="panel-section">
+          <div class="panel-section-title">Video Call</div>
+          <div style="font-family: var(--font-ui); font-size: 0.9rem; color: #555; padding: 2rem 0; text-align: center;">
+            <p><i class="bi bi-camera-video" style="font-size: 2rem; color: #0066cc; display: block; margin-bottom: 1rem;"></i></p>
+            <p>Start a video call with support</p>
+          </div>
+          <a class="panel-item" style="justify-content: center; background: #28a745; color: white;">
+            <i class="bi bi-camera-video"></i>
+            <span>Start Call</span>
+          </a>
+        </div>
+      `
+    };
+
+    function openRightPanel(panelType) {
+      const panel = document.getElementById('right-panel');
+      const overlay = document.getElementById('right-panel-overlay');
+      const content = document.getElementById('right-panel-content');
+      const title = document.getElementById('right-panel-title');
+
+      // Set title based on panel type
+      const titles = {
+        share: 'Share',
+        display: 'Display Options',
+        book: 'Book Info',
+        clipboard: 'Clipboard',
+        trophy: 'Achievements',
+        profile: 'Profile',
+        video: 'Video Call'
+      };
+
+      title.textContent = titles[panelType] || 'Options';
+      content.innerHTML = rightPanelContent[panelType] || '<p>Loading...</p>';
+
+      panel.classList.add('open');
+      overlay.classList.add('open');
+    }
+
+    function closeRightPanel() {
+      const panel = document.getElementById('right-panel');
+      const overlay = document.getElementById('right-panel-overlay');
+
+      panel.classList.remove('open');
+      overlay.classList.remove('open');
+    }
+
+    // Helper functions
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+
+    function copyPageTitle() {
+      navigator.clipboard.writeText(document.title);
+      alert('Page title copied to clipboard!');
+    }
+
+    function copyPageURL() {
+      navigator.clipboard.writeText(window.location.href);
+      alert('Page URL copied to clipboard!');
+    }
+
+    function copyPageMarkdown() {
+      const markdown = `[${document.title}](${window.location.href})`;
+      navigator.clipboard.writeText(markdown);
+      alert('Page copied as Markdown!');
+    }
+
+    function shareOnTwitter() {
+      const url = window.location.href;
+      const title = document.title;
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+      window.open(twitterUrl, '_blank');
+    }
+
+    function shareOnFacebook() {
+      const url = window.location.href;
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      window.open(facebookUrl, '_blank');
+    }
+
+    function shareOnLinkedIn() {
+      const url = window.location.href;
+      const title = document.title;
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      window.open(linkedinUrl, '_blank');
+    }
+
+    // Close panel when clicking Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeRightPanel();
+      }
+    });
+  </script>
 </body>
+
 </html>
