@@ -219,32 +219,9 @@
         min-height: calc(100vh - 60px);
     }
 
-    .breadcrumb-nav {
-        position: sticky;
-        top: 0;
-        background: #fff;
-        padding: 0.5rem 0rem;
-        /* border-bottom: 1px solid var(--sidebar-border); */
-        z-index: 1000;
-    }
-
-    .breadcrumb {
-        margin: 0;
-        background: none;
-        padding: 0;
-    }
-
     .breadcrumb-item a {
         color: var(--link-color);
         text-decoration: none;
-    }
-
-    .breadcrumb-item a:hover {
-        text-decoration: underline;
-    }
-
-    .breadcrumb-item.active {
-        color: #555;
     }
 
     #content {
