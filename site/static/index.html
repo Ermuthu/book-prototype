@@ -26,25 +26,25 @@
         </ol>
       </nav>
       <div id="bookOptionsPane" class="d-flex justify-content-end header-icon">
-        <button class="btn" onclick="openRightPanel('share')" title="Share">
+        <button class="btn" title="Share">
           <i class="bi bi-link-45deg"></i>
         </button>
-        <button class="btn" onclick="openRightPanel('display')" title="Display Options">
+        <button class="btn" title="Display Options">
           <i class="bi bi-tv"></i>
         </button>
-        <button class="btn" onclick="openRightPanel('book')" title="Book Info">
+        <button class="btn" title="Book Info">
           <i class="bi bi-book"></i>
         </button>
-        <button class="btn" onclick="openRightPanel('clipboard')" title="Clipboard">
+        <button class="btn" title="Clipboard">
           <i class="bi bi-clipboard"></i>
         </button>
-        <a class="btn" href="#" onclick="openRightPanel('trophy'); return false;" role="button" title="Achievements">
+        <a class="btn" href="#" role="button" title="Achievements">
           <i class="bi bi-trophy"></i>
         </a>
-        <a class="btn" href="#" onclick="openRightPanel('profile'); return false;" title="Profile">
+        <a class="btn" href="#" title="Profile">
           <i class="bi bi-person-check"></i>
         </a>
-        <button class="btn" onclick="openRightPanel('video')" title="Video Call">
+        <button class="btn" title="Video Call">
           <i class="bi bi-person-video2"></i>
         </button>
       </div>
@@ -286,191 +286,6 @@
       target.addEventListener('hide.bs.collapse', () => el.setAttribute('aria-expanded', 'false'));
     });
 
-    // Right Panel Functions
-    const rightPanelContent = {
-      share: `
-        <div class="panel-section">
-          <div class="panel-section-title">Share This Page</div>
-          <a class="panel-item" onclick="copyLink()">
-            <i class="bi bi-link-45deg"></i>
-            <span>Copy Link</span>
-          </a>
-          <a class="panel-item" onclick="shareOnTwitter()">
-            <i class="bi bi-twitter"></i>
-            <span>Share on Twitter</span>
-          </a>
-          <a class="panel-item" onclick="shareOnFacebook()">
-            <i class="bi bi-facebook"></i>
-            <span>Share on Facebook</span>
-          </a>
-          <a class="panel-item" onclick="shareOnLinkedIn()">
-            <i class="bi bi-linkedin"></i>
-            <span>Share on LinkedIn</span>
-          </a>
-        </div>
-      `,
-      display: `
-        <div class="panel-section">
-          <div class="panel-section-title">Display Options</div>
-          <a class="panel-item">
-            <i class="bi bi-moon"></i>
-            <span>Dark Mode</span>
-          </a>
-          <a class="panel-item">
-            <i class="bi bi-zoom-in"></i>
-            <span>Increase Font Size</span>
-          </a>
-          <a class="panel-item">
-            <i class="bi bi-zoom-out"></i>
-            <span>Decrease Font Size</span>
-          </a>
-        </div>
-      `,
-      book: `
-        <div class="panel-section">
-          <div class="panel-section-title">Book Information</div>
-          <div style="font-family: var(--font-ui); font-size: 0.9rem; color: #555; line-height: 1.6;">
-            <p><strong>Title:</strong> Hugo Book</p>
-            <p><strong>Author:</strong> Hugo Team</p>
-            <p><strong>Version:</strong> 1.0.0</p>
-            <p><strong>License:</strong> MIT</p>
-          </div>
-        </div>
-      `,
-      clipboard: `
-        <div class="panel-section">
-          <div class="panel-section-title">Clipboard</div>
-          <a class="panel-item" onclick="copyPageTitle()">
-            <i class="bi bi-file-earmark-text"></i>
-            <span>Copy Page Title</span>
-          </a>
-          <a class="panel-item" onclick="copyPageURL()">
-            <i class="bi bi-link"></i>
-            <span>Copy Page URL</span>
-          </a>
-          <a class="panel-item" onclick="copyPageMarkdown()">
-            <i class="bi bi-markdown"></i>
-            <span>Copy as Markdown</span>
-          </a>
-        </div>
-      `,
-      trophy: `
-        <div class="panel-section">
-          <div class="panel-section-title">Achievements</div>
-          <div style="font-family: var(--font-ui); font-size: 0.9rem; text-align: center; padding: 2rem 0;">
-            <i class="bi bi-trophy" style="font-size: 2rem; color: #ffc107; margin-bottom: 1rem; display: block;"></i>
-            <p>No achievements yet. Keep exploring!</p>
-          </div>
-        </div>
-      `,
-      profile: `
-        <div class="panel-section">
-          <div class="panel-section-title">User Profile</div>
-          <div style="text-align: center; padding: 2rem 0;">
-            <div style="width: 60px; height: 60px; border-radius: 50%; background: #e0e0e0; margin: 0 auto 1rem;"></div>
-            <p style="font-family: var(--font-ui); font-weight: 600; margin: 0.5rem 0;">Guest User</p>
-            <p style="font-family: var(--font-ui); font-size: 0.85rem; color: #777; margin: 0;">Sign in to save progress</p>
-          </div>
-          <a class="panel-item" style="justify-content: center; background: #0066cc; color: white;">
-            <span>Sign In</span>
-          </a>
-        </div>
-      `,
-      video: `
-        <div class="panel-section">
-          <div class="panel-section-title">Video Call</div>
-          <div style="font-family: var(--font-ui); font-size: 0.9rem; color: #555; padding: 2rem 0; text-align: center;">
-            <p><i class="bi bi-camera-video" style="font-size: 2rem; color: #0066cc; display: block; margin-bottom: 1rem;"></i></p>
-            <p>Start a video call with support</p>
-          </div>
-          <a class="panel-item" style="justify-content: center; background: #28a745; color: white;">
-            <i class="bi bi-camera-video"></i>
-            <span>Start Call</span>
-          </a>
-        </div>
-      `
-    };
-
-    function openRightPanel(panelType) {
-      const panel = document.getElementById('right-panel');
-      const overlay = document.getElementById('right-panel-overlay');
-      const content = document.getElementById('right-panel-content');
-      const title = document.getElementById('right-panel-title');
-
-      // Set title based on panel type
-      const titles = {
-        share: 'Share',
-        display: 'Display Options',
-        book: 'Book Info',
-        clipboard: 'Clipboard',
-        trophy: 'Achievements',
-        profile: 'Profile',
-        video: 'Video Call'
-      };
-
-      title.textContent = titles[panelType] || 'Options';
-      content.innerHTML = rightPanelContent[panelType] || '<p>Loading...</p>';
-
-      panel.classList.add('open');
-      overlay.classList.add('open');
-    }
-
-    function closeRightPanel() {
-      const panel = document.getElementById('right-panel');
-      const overlay = document.getElementById('right-panel-overlay');
-
-      panel.classList.remove('open');
-      overlay.classList.remove('open');
-    }
-
-    // Helper functions
-    function copyLink() {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Link copied to clipboard!');
-    }
-
-    function copyPageTitle() {
-      navigator.clipboard.writeText(document.title);
-      alert('Page title copied to clipboard!');
-    }
-
-    function copyPageURL() {
-      navigator.clipboard.writeText(window.location.href);
-      alert('Page URL copied to clipboard!');
-    }
-
-    function copyPageMarkdown() {
-      const markdown = `[${document.title}](${window.location.href})`;
-      navigator.clipboard.writeText(markdown);
-      alert('Page copied as Markdown!');
-    }
-
-    function shareOnTwitter() {
-      const url = window.location.href;
-      const title = document.title;
-      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-      window.open(twitterUrl, '_blank');
-    }
-
-    function shareOnFacebook() {
-      const url = window.location.href;
-      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-      window.open(facebookUrl, '_blank');
-    }
-
-    function shareOnLinkedIn() {
-      const url = window.location.href;
-      const title = document.title;
-      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
-      window.open(linkedinUrl, '_blank');
-    }
-
-    // Close panel when clicking Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeRightPanel();
-      }
-    });
   </script>
 </body>
 
