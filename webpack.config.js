@@ -3,8 +3,6 @@ const path = require('path');
 const glob = require('glob');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const proxyConfig = require('./proxy.config.js');
-
 module.exports = {
     // Dynamically find all JS files in the src/js folder
     entry: glob.sync('./src/js/*.js').reduce((entries, file) => {
@@ -19,7 +17,6 @@ module.exports = {
     // plugins: [new CleanWebpackPlugin()],
     mode: 'production', // Change to 'production' for production builds
     devServer: {
-      proxy: proxyConfig,
       static: {
         directory: path.join(__dirname, 'dist'),
       },
