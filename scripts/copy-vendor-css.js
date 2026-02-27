@@ -41,8 +41,6 @@ const filesToCopy = [
     { src: 'node_modules/katex/dist/contrib/auto-render.js', dest: 'dist/vendor/auto-render.js' },
     // JSXGraph core JS
     { src: 'node_modules/jsxgraph/distrib/jsxgraphcore.js', dest: 'dist/vendor/jsxgraphcore.js' },
-    // Bootstrap color-modes JS (custom src path)
-    { src: 'src/js/color-modes.js', dest: 'dist/vendor/color-modes.js' },
     { src: 'node_modules/@popperjs/core/dist/umd/popper.min.js', dest: 'dist/vendor/popper.min.js' },
 ];
   

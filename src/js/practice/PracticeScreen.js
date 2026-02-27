@@ -2,66 +2,17 @@ import QuestionPane from "./components/QuestionPane";
 
 export default class PracticeScreen {
   constructor() {
+    const category = "cse/languages/java";
+    const languageCode = "";
 
-      const pathname = window.location.pathname;
+    this.questionsUrl = "/data/" + category;
 
-      const [languageCode, category] = (() => {
-        const parts = window.location.pathname.split("/").filter(Boolean);
-        return parts[0] === "questions"
-          ? [undefined, parts.slice(1).join("/")]
-          : [parts[0], parts.slice(2).join("/")];
-      })();
+    this.questionPane = new QuestionPane();
+    this.questionPane.readOnly = true;
 
-      console.log("category");
+    this.addActions();
 
-      console.log(category);
-
-      console.log("languageCode");
-
-      console.log(languageCode);
-
-      
-
-      // const urlTokens = pathname.includes("/questions/")
-      //   ? pathname.split("/questions/")
-      //   : pathname.split("/quiz/");
-
-      // if (!urlTokens[1] || urlTokens[1].trim() === "") {
-      //   window.location.href = "/";
-      // }
-
-      const urlTokens = ['questions','cse/languages/java'];
-
-      this.questionsUrl = "/data/" + urlTokens[1];
-
-      const titleBarTxt = sessionStorage.getItem("titleBar");
-
-      if (titleBarTxt) {
-        document.querySelector(".breadcrumb").innerHTML = titleBarTxt;
-        const lastBEl = document
-          .querySelector(".breadcrumb")
-          .querySelector(".active");
-        if (lastBEl) {
-          const anchorEl = document.createElement("a");
-          anchorEl.href = document.referrer;
-          anchorEl.innerHTML = lastBEl.innerHTML;
-          lastBEl.innerHTML = "";
-          lastBEl.appendChild(anchorEl);
-        }
-      }
-
-      this.questionPane = new QuestionPane();
-      this.questionPane.readOnly = true;
-
-      this.addActions();
-
-      console.log(window.LANGUAGE);
-      if (pathname.includes("/questions/")) {
-        this.loadQuestions(urlTokens[1], undefined, languageCode);
-      } else {
-        this.loadQuestions(urlTokens[1], 10, languageCode);
-      }
-   
+    this.loadQuestions(category, undefined, languageCode);
   }
 
   loadQuestions(category, maxQuestions = null, locale = null) {

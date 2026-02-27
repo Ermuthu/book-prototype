@@ -1,8 +1,10 @@
 const hljs = require('highlight.js/lib/core')
 class GurukulamsPage {
   constructor() {
+
+    this.handleStatus();
     
-    this.locale = document.getElementById("languageBtn").dataset.code;
+    // this.locale = document.getElementById("languageBtn").dataset.code;
 
     hljs.highlightAll();
     // Add copy button to each highlighted code block
@@ -112,7 +114,7 @@ class GurukulamsPage {
     this.handleSecurity();
     this.handleSearch();
     this.handleValidation();
-    this.handleStatus();
+    
     this.handleModelDialogs();
     this.handleTheme();
     this.setScrollIndicator();
