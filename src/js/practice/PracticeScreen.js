@@ -20,28 +20,7 @@ export default class PracticeScreen {
 
       console.log(languageCode);
 
-      const languageBtn = document.getElementById("languageBtn");
-      const languagesEl = languageBtn.nextElementSibling;
-
-      if (languageCode) {
-        for (const child of languagesEl.children) {
-          const anchorEl = child.firstChild;
-          if (anchorEl.dataset.code === languageCode) {
-            console.log("FGGA" + languageBtn.innerHTML);
-            const languageText = anchorEl.innerHTML;
-            anchorEl.innerHTML = languageBtn.innerHTML;
-            languageBtn.innerHTML = languageText;
-            anchorEl.href = pathname.substring(languageCode.length + 1);
-          } else {
-            anchorEl.href = "/" + anchorEl.dataset.code + pathname;
-          }
-        }
-      } else {
-        for (const child of languagesEl.children) {
-          const anchorEl = child.firstChild;
-          anchorEl.href = "/" + anchorEl.dataset.code + pathname;
-        }
-      }
+      
 
       // const urlTokens = pathname.includes("/questions/")
       //   ? pathname.split("/questions/")
