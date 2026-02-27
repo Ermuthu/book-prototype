@@ -219,10 +219,6 @@
         min-height: calc(100vh - 60px);
     }
 
-    .breadcrumb-item a {
-        color: var(--link-color);
-        text-decoration: none;
-    }
 
     #content {
         flex: 1;
@@ -425,9 +421,7 @@
     }
 
     @media (max-width: 768px) {
-        .breadcrumb-nav {
-            display: none;
-        }
+        
 
         .header-icon {
             display: none !important;
