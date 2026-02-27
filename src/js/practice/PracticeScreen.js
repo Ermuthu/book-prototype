@@ -166,30 +166,17 @@ export default class PracticeScreen {
     this.questionPane.doExplain(explain);
   }
 
-  doDelete() {
-    console.log("Delete Button clicked");
-  }
-  doAdd(QuestionType) {
-    console.log("Add Button clicked for " + QuestionType);
-  }
-
   doEdit() {
     if (this.modeBtn.classList.contains("fa-pencil")) {
-      this.saveBtn.classList.remove("d-none");
       this.explainToggleBtn.classList.remove("d-none");
       this.checkBtn.classList.add("d-none");
       this.questionPane.readOnly = false;
       this.loadQuestions();
     } else {
-      this.saveBtn.classList.add("d-none");
       this.explainToggleBtn.classList.add("d-none");
       this.checkBtn.classList.remove("d-none");
       this.questionPane.readOnly = true;
     }
-  }
-
-  doSave() {
-    console.log("Save Button clicked");
   }
 
   doSubmit() {
