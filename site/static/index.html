@@ -1,324 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header
+      class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+    >
+      <span
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+      >
+        <i
+          class="bi bi-list me-2 fs-4"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebarOffcanvas"
+          aria-controls="sidebarOffcanvas"
+          aria-label="Toggle menu"
+        ></i>
+        <a href="#">Hugo Book</a>
+      </span>
+      <div id="bookOptionsPane" class="d-flex justify-content-end header-icon">
+        <button
+          class="btn bi bi-link-45deg"
+          title="References"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#referencepanel"
+          aria-controls="referencepanel"
+        ></button>
+        <button
+          class="btn bi bi-tv"
+          title="Display Options"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#displaypanel"
+          aria-controls="displaypanel"
+        ></button>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hugo Book – Site</title>
-    <link rel="stylesheet" href="./asset/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-
-<body>
-
-    <div class="container">
-        <header id="header-menu">
-            <button class="hamburger-btn" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas"
-                aria-controls="sidebarOffcanvas" aria-label="Toggle menu">
-                <i class="bi bi-list fs-4"></i> <a href="#" class="logo-brand">Hugo Book</a>
-            </button>
-
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">Library</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Data</li>
-                </ol>
-              </nav>
-
-            <div id="bookOptionsPane" class="d-flex justify-content-end header-icon">
-                <button class="btn bi bi-link-45deg" title="References" data-bs-toggle="offcanvas"
-                    data-bs-target="#referencepanel" aria-controls="referencepanel">
-                </button>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="referencepanel" aria-labelledby="referencepanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="referencepanelLabel">References</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-                <button class="btn bi bi-tv" title="Display Options" data-bs-toggle="offcanvas"
-                    data-bs-target="#displaypanel" aria-controls="displaypanel">
-                </button>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="displaypanel" aria-labelledby="displaypanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="displaypanelLabel">Display Options</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-                <button class="btn bi bi-book" title="Book Info" data-bs-toggle="offcanvas"
-                    data-bs-target="#bookinfopanel" aria-controls="bookinfopanel">
-                </button>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="bookinfopanel" aria-labelledby="bookinfopanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="bookinfopanelLabel">Book Info</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-                <button class="btn bi bi-clipboard" title="Clipboard" data-bs-toggle="offcanvas"
-                    data-bs-target="#clipboardpanel" aria-controls="clipboardpanel">
-                </button>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="clipboardpanel" aria-labelledby="clipboardpanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="clipboardpanelLabel">Clipboard</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-                <a class="btn bi bi-trophy" title="Achievements" data-bs-toggle="offcanvas"
-                    data-bs-target="#achievementspanel" aria-controls="achievementspanel">
-                </a>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="achievementspanel" aria-labelledby="achievementspanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="achievementspanelLabel">Achievements</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-                <a class="btn bi bi-person-check" title="Profile" data-bs-toggle="offcanvas"
-                    data-bs-target="#profilepanel" aria-controls="profilepanel">
-                </a>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="profilepanel" aria-labelledby="profilepanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="profilepanelLabel">Profile</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-                <button class="btn bi-person-video2" title="Video Call" data-bs-toggle="offcanvas"
-                    data-bs-target="#videocallpanel" aria-controls="videocallpanel">
-                </button>
-                <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-                    id="videocallpanel" aria-labelledby="videocallpanelLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="videocallpanelLabel">Video Call</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <p>Try scrolling the rest of the page to see this option in action.</p>
-                    </div>
-                </div>
-
-            </div>
-        </header>
-
-        <div id="topbar">
-            <button class="btn btn-sm p-1" id="hamburger-mobile" data-bs-toggle="offcanvas"
-                data-bs-target="#sidebarOffcanvas" aria-controls="sidebarOffcanvas" aria-label="Toggle menu">
-                <i class="bi bi-list fs-4"></i>
-            </button>
-            <a href="#" class="brand-mobile">Hugo Book</a>
+        <button
+          class="btn bi bi-book"
+          title="Book Info"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#bookinfopanel"
+          aria-controls="bookinfopanel"
+        ></button>
+        <div
+          class="offcanvas offcanvas-end"
+          data-bs-scroll="true"
+          data-bs-backdrop="false"
+          tabindex="-1"
+          id="bookinfopanel"
+          aria-labelledby="bookinfopanelLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="bookinfopanelLabel">Book Info</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <p>
+              Try scrolling the rest of the page to see this option in action.
+            </p>
+          </div>
         </div>
 
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="sidebarOffcanvas"
-            aria-labelledby="sidebarOffcanvasLabel">
+        <button
+          class="btn bi bi-clipboard"
+          title="Clipboard"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#clipboardpanel"
+          aria-controls="clipboardpanel"
+        ></button>
 
-            <div class="offcanvas-header pb-1">
-                <a href="#" class="logo-brand" id="sidebarOffcanvasLabel">Hugo Book</a>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
+        <a
+          class="btn bi bi-trophy"
+          title="Achievements"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#achievementspanel"
+          aria-controls="achievementspanel"
+        >
+        </a>
 
-            <div class="offcanvas-body px-3">
+        <a
+          class="btn bi bi-person-check"
+          title="Profile"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#profilepanel"
+          aria-controls="profilepanel"
+        >
+        </a>
 
-                <div class="search-wrap p-3">
-                    <input type="search" class="form-control form-control-sm" placeholder="Search"
-                        aria-label="Search" />
-                </div>
+        <button
+          class="btn bi-person-video2"
+          title="Video Call"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#videocallpanel"
+          aria-controls="videocallpanel"
+        ></button>
+      </div>
+    </header>
 
-                <a class="lang-row px-3 py-2 d-flex align-items-center justify-content-between text-decoration-none"
-                    data-bs-toggle="collapse" href="#lang-collapse" role="button" aria-expanded="false"
-                    aria-controls="lang-collapse">
-                    <span><i class="bi bi-translate me-1"></i> English</span>
-                    <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
-                </a>
-                <div class="collapse" id="lang-collapse">
-                    <a href="#" class="sidebar-nav indent-1 d-block py-1 px-4"
-                        style="font-family:var(--font-ui);font-size:.85rem;color:#555;text-decoration:none;">Chinese</a>
-                    <a href="#" class="sidebar-nav indent-1 d-block py-1 px-4"
-                        style="font-family:var(--font-ui);font-size:.85rem;color:#555;text-decoration:none;">Hebrew</a>
-                </div>
+    <main class="container my-5">
+      <div class="row">
+        <!-- Content column -->
+        <article class="col-md-9 d-flex justify-content-center">
+          <div class="shadow-sm rounded">
+            <h1>Caput vino delphine in tamen vias</h1>
 
-                <div class="nav-section-label px-3 pt-2">Example Site</div>
+            <h2>Cognita laeva illo fracta</h2>
+            <p>
+              Lorem markdownum pavent auras, surgit nunc cingentibus libet
+              <strong>Laomedonque que</strong> est. Pastor
+              <a href="#">An</a> arbor filia foedat, ne
+              <a href="#">fugit aliter</a>, per. Helicona illas et callida
+              neptem est <em>Oresitrophos</em> caput, dentibus est venit. Tenet
+              reddite <a href="#">famuli</a> praesentem fortibus, quaeque vis
+              foret si frondes <em>gelidos</em> gravidae circumtulit
+              <a href="#">inpulit armenta nativum</a>.
+            </p>
 
-                <div class="sidebar-nav px-3">
-                    <a href="#" data-bs-toggle="collapse" data-bs-target="#toc-sub" aria-expanded="true"
-                        aria-controls="toc-sub">
-                        Table of Contents
-                        <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
-                    </a>
-                    <div class="collapse show" id="toc-sub">
-                        <a href="#" class="indent-1 active">With ToC</a>
-                        <a href="#" class="indent-1">Without ToC</a>
-                    </div>
+            <ol>
+              <li>Te at cruciabere vides rubentis manebo</li>
+              <li>Maturuit in praetemptat ruborem ignara postquam habitasse</li>
+              <li>
+                Subitarum supplevit quoque fontesque venabula spretis modo
+              </li>
+              <li>Montis tot est mali quasque gravis</li>
+              <li>Quinquennem domus arsit ipse</li>
+              <li>Pellem turis pugnabant locavit</li>
+            </ol>
 
-                    <a href="#" data-bs-toggle="collapse" data-bs-target="#collapsed-sub" aria-expanded="false"
-                        aria-controls="collapsed-sub">
-                        Collapsed
-                        <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
-                    </a>
-                    <div class="collapse" id="collapsed-sub">
-                        <a href="#" class="indent-1">3rd Level</a>
-                        <a href="#" class="indent-2">4th Level</a>
-                    </div>
-                </div>
+            <h2>Natus quaerere</h2>
+            <p>
+              Pectora et sine mulcere, coniuge dum tincta incurvae. Quis iam;
+              est dextra Peneosque, metuis a verba, primo. Illa sed colloque
+              suis: magno: gramen, aera excutiunt concipit.
+            </p>
 
-                <div class="nav-section-label px-3 pt-2">Shortcodes</div>
+            <blockquote>
+              Phrygiae petendo suisque extimuit, super, pars quod audet! Turba
+              negarem. Fuerat attonitus; et dextra retinet sidera ulnas undas
+              instimulat vacuae generis? <em>Agnus</em> dabat et ignotis
+              dextera, sic tibi pac <strong>feriente at mora</strong> euhoeque
+              <em>comites hostem</em> vestras Phineus. Vultuque sanguine
+              dominoque <a href="#">metuit risi</a> fama vergit summaque meus
+              clarissimus artesque tinguebat successor nominis cervice
+              caelicolae.
+            </blockquote>
 
-                <div class="sidebar-nav px-3">
-                    <a href="#">Buttons</a>
-                    <a href="#">Columns</a>
-                    <a href="#">Details</a>
+            <h2>Limitibus misere sit</h2>
+            <p>
+              Aurea non fata repertis praerupit feruntur simul, meae hosti
+              lentaque <em>citius levibus</em>, cum sede dixit, Phaethon texta.
+              <em>Albentibus summos</em> multifidasque iungitur loquendi an
+              pectore, mihi ursaque omnia adfata, aeno parvumque in animi
+              perlucentes. Epytus agis ait vixque clamat ornum adversam spondet,
+              quid sceptra ipsum <strong>est</strong>. Reseret nec; saeva suo
+              passu debentia linguam terga et aures et cervix
+              <a href="#">de</a> ubera. Coercet gelidumque manus, doluit
+              volvitur induta?
+            </p>
 
-                    <a href="#" data-bs-toggle="collapse" data-bs-target="#exp-sub" aria-expanded="false"
-                        aria-controls="exp-sub">
-                        Experimental
-                        <i class="bi bi-chevron-right chev" style="font-size:.7rem"></i>
-                    </a>
-                    <div class="collapse" id="exp-sub">
-                        <a href="#" class="indent-1">Asciinema</a>
-                        <a href="#" class="indent-1">Badges</a>
-                        <a href="#" class="indent-1">Cards</a>
-                        <a href="#" class="indent-1">Images</a>
-                    </div>
+            <h2>Enim sua</h2>
+            <p>
+              Nec dis certa fuit socer, Nonacria <strong>dies</strong> manet
+              tacitaque sibi? Sucis est iactata Castrumque iudex, et iactato
+              quoque terraeque es tandem et maternos vittis. Lumina litus bene
+              poenamque animos callem ne tuas in leones illam dea cadunt genus.
+            </p>
 
-                    <a href="#">Hints</a>
-                    <a href="#">Mermaid</a>
-                    <a href="#">Steps</a>
-                    <a href="#">Tabs</a>
-                    <a href="#">KaTeX</a>
-                </div>
+            <h2>Germana aves pignus tecta</h2>
+            <p>
+              Sentiet et ferali errorem fessam, coercet superbus, Ascaniumque in
+              pennis mediis; dolor? Vidit imi <strong>Aeacon</strong> perfida
+              propositos adde, tua Somni Fluctibus errante lustrat non. Tamen
+              inde, vos videt e flammis Scythica parantem rupisque pectora
+              umbras.
+            </p>
 
-                <div class="sidebar-nav px-3 mt-2" style="border-top:1px solid #eee;padding-top:.5rem;">
-                    <a href="#">Blog</a>
-                    <a href="#">Github</a>
-                    <a href="#">Hugo Themes</a>
-                </div>
+           
 
-            </div>
-        </div>
+            
 
-        <div id="page-wrap">
-            <main id="content">
-                <h1>Caput vino delphine in tamen vias</h1>
+              
+              <div class="d-flex mb-3">
+                <div class="me-auto p-2"><a href="#" class="prev-topic1"
+                    ><i class="bi bi-calendar fs-6 text-dark"></i> January 1,
+                    2026</a
+                  ></div>
+                <div class="p-2"><a href="#" class="next-topic"
+                    ><i class="bi bi-pencil-square fs-6 text-dark"></i> Edit this
+                    page</a
+                  ></div>
+              </div>
 
-                <h2>Cognita laeva illo fracta</h2>
-                <p>
-                    Lorem markdownum pavent auras, surgit nunc cingentibus libet <strong>Laomedonque que</strong> est.
-                    Pastor <a href="#">An</a> arbor filia foedat, ne <a href="#">fugit aliter</a>, per. Helicona illas
-                    et
-                    callida neptem est <em>Oresitrophos</em> caput, dentibus est venit. Tenet reddite
-                    <a href="#">famuli</a> praesentem fortibus, quaeque vis foret si frondes <em>gelidos</em> gravidae
-                    circumtulit <a href="#">inpulit armenta nativum</a>.
-                </p>
+              <div class="d-flex mb-3">
+                <div class="me-auto p-2"><a href="#" class="prev-topic"
+                    ><i class="bi bi-arrow-left-circle text-dark"></i> Previous:
+                    Topic</a
+                  ></div>
+                <div class="p-2"><a href="#" class="next-topic"
+                    >Next: Topic <i class="bi bi-arrow-right-circle text-dark"></i
+                  ></a></div>
+              </div>
+              
 
-                <ol>
-                    <li>Te at cruciabere vides rubentis manebo</li>
-                    <li>Maturuit in praetemptat ruborem ignara postquam habitasse</li>
-                    <li>Subitarum supplevit quoque fontesque venabula spretis modo</li>
-                    <li>Montis tot est mali quasque gravis</li>
-                    <li>Quinquennem domus arsit ipse</li>
-                    <li>Pellem turis pugnabant locavit</li>
-                </ol>
+            
+          </div>
+        </article>
 
-                <h2>Natus quaerere</h2>
-                <p>
-                    Pectora et sine mulcere, coniuge dum tincta incurvae. Quis iam; est dextra Peneosque, metuis a
-                    verba, primo. Illa sed colloque suis: magno: gramen, aera excutiunt concipit.
-                </p>
+        <!-- TOC column -->
+        <aside class="col-md-3 d-none d-md-block">
+          <nav>
+            <h6 class="text-muted mb-3">Table of Contents</h6>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#chapter-1">Chapter 1: Introduction</a>
+              </li>
+              <li class="mb-2">
+                <a href="#chapter-2">Chapter 2: Core Concepts</a>
+              </li>
+              <li class="mb-2"><a href="#chapter-3">Chapter 3: Practice</a></li>
+            </ul>
+          </nav>
+        </aside>
+      </div>
+    </main>
 
-                <blockquote>
-                    Phrygiae petendo suisque extimuit, super, pars quod audet! Turba negarem. Fuerat attonitus; et
-                    dextra retinet sidera ulnas undas instimulat vacuae generis? <em>Agnus</em> dabat et ignotis
-                    dextera, sic tibi pac <strong>feriente at mora</strong> euhoeque <em>comites hostem</em> vestras
-                    Phineus. Vultuque sanguine dominoque <a href="#">metuit risi</a> fama vergit summaque meus
-                    clarissimus artesque tinguebat successor nominis cervice caelicolae.
-                </blockquote>
+    <div
+      class="offcanvas offcanvas-start"
+      data-bs-scroll="true"
+      tabindex="-1"
+      id="sidebarOffcanvas"
+      aria-labelledby="sidebarOffcanvasLabel"
+    >
+      <div class="offcanvas-header pb-1">
+        <form class="w-100 me-3" role="search">
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search Book"
+            aria-label="Search"
+          />
+        </form>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-                <h2>Limitibus misere sit</h2>
-                <p>
-                    Aurea non fata repertis praerupit feruntur simul, meae hosti lentaque <em>citius levibus</em>,
-                    cum sede dixit, Phaethon texta. <em>Albentibus summos</em> multifidasque iungitur loquendi an
-                    pectore, mihi ursaque omnia adfata, aeno parvumque in animi perlucentes. Epytus agis ait vixque
-                    clamat ornum adversam spondet, quid sceptra ipsum <strong>est</strong>. Reseret nec; saeva suo
-                    passu debentia linguam terga et aures et cervix <a href="#">de</a> ubera. Coercet gelidumque
-                    manus, doluit volvitur induta?
-                </p>
-
-                <h2>Enim sua</h2>
-                <p>
-                    Nec dis certa fuit socer, Nonacria <strong>dies</strong> manet tacitaque sibi? Sucis est iactata
-                    Castrumque iudex, et iactato quoque terraeque es tandem et maternos vittis. Lumina litus bene
-                    poenamque animos callem ne tuas in leones illam dea cadunt genus.
-                </p>
-
-                <h2>Germana aves pignus tecta</h2>
-                <p>
-                    Sentiet et ferali errorem fessam, coercet superbus, Ascaniumque in pennis mediis; dolor? Vidit
-                    imi <strong>Aeacon</strong> perfida propositos adde, tua Somni Fluctibus errante lustrat non.
-                    Tamen inde, vos videt e flammis Scythica parantem rupisque pectora umbras.
-                </p>
-
-                <div class="page-meta mt-3">
-                    <div class="nav-links">
-                        <a href="#" class="prev-topic1"><i class="bi bi-calendar fs-6 text-dark"></i> January 1,
-                            2026</a>
-                        <a href="#" class="next-topic"><i class="bi bi-pencil-square fs-6 text-dark"></i> Edit this
-                            page</a>
-                    </div>
-                    <div class="nav-links">
-                        <a href="#" class="prev-topic"><i class="bi bi-arrow-left-circle text-dark"></i> Previous:
-                            Topic</a>
-                        <a href="#" class="next-topic">Next: Topic <i
-                                class="bi bi-arrow-right-circle text-dark"></i></a>
-                    </div>
-                </div>
-            </main>
-
-            <aside id="toc-panel">
-                <a href="#"
-                    style="color:#333;font-weight:600;font-size:.8rem;font-family:var(--font-ui);text-decoration:none;display:block;margin-bottom:.6rem;">Table
-                    of Contents</a>
-                <a href="#">Caput vino delphine in tamen vias</a>
-                <a href="#" class="sub">Cognita laeva illo fracta</a>
-                <a href="#" class="sub">Natus quaerere</a>
-                <a href="#" class="sub">Limitibus misere sit</a>
-                <a href="#" class="sub">Enim sua</a>
-                <a href="#" class="sub">Germana aves pignus tecta</a>
-            </aside>
-        </div>
+      <div class="offcanvas-body px-3"></div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-</body>
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="referencepanel"
+      aria-labelledby="referencepanelLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="referencepanelLabel">References</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
 
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="videocallpanel"
+      aria-labelledby="videocallpanelLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="videocallpanelLabel">Video Call</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="profilepanel"
+      aria-labelledby="profilepanelLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="profilepanelLabel">Profile</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="achievementspanel"
+      aria-labelledby="achievementspanelLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="achievementspanelLabel">
+          Achievements
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="clipboardpanel"
+      aria-labelledby="clipboardpanelLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="clipboardpanelLabel">Clipboard</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-end"
+      data-bs-scroll="true"
+      data-bs-backdrop="false"
+      tabindex="-1"
+      id="displaypanel"
+      aria-labelledby="displaypanelLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="displaypanelLabel">Display Options</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <p>Try scrolling the rest of the page to see this option in action.</p>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
