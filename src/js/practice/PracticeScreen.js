@@ -175,18 +175,12 @@ export default class PracticeScreen {
 
   doEdit() {
     if (this.modeBtn.classList.contains("fa-pencil")) {
-      this.modeBtn.className = "fa-regular fa-eye";
-      this.addBtn.classList.remove("d-none");
-      this.deleteBtn.classList.remove("d-none");
       this.saveBtn.classList.remove("d-none");
       this.explainToggleBtn.classList.remove("d-none");
       this.checkBtn.classList.add("d-none");
       this.questionPane.readOnly = false;
       this.loadQuestions();
     } else {
-      this.modeBtn.className = "fa-solid fa-pencil";
-      this.addBtn.classList.add("d-none");
-      this.deleteBtn.classList.add("d-none");
       this.saveBtn.classList.add("d-none");
       this.explainToggleBtn.classList.add("d-none");
       this.checkBtn.classList.remove("d-none");
