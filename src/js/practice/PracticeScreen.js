@@ -1,9 +1,38 @@
 import QuestionPane from "./components/QuestionPane";
 
+
+/**
+ * Extracts category and language from the URL Hash using '?' as separator.
+ * Format: #/category/path?langCode
+ */
+ function getHashVariables() {
+  // 1. Get the hash and remove the leading '#' and '/'
+  const hash = window.location.hash.replace(/^#\/?/, "");
+
+  // if (!hash) {
+  //     // Fallback default if the hash is empty
+  //     return { category: "cse/languages/java", languageCode: "" };
+  // }
+
+  // 2. Split by the '?' character
+  const [pathPart, langPart] = hash.split("?");
+
+  // 3. Clean up the category path (remove trailing slashes)
+  const category = pathPart.replace(/\/$/, "");
+
+  // 4. The language code is whatever follows the '?'
+  // If no '?' exists, langPart will be undefined, so we fallback to ""
+  const languageCode = langPart || "";
+
+  return { category, languageCode };
+}
+
 export default class PracticeScreen {
   constructor() {
-    const category = "cse/languages/java";
-    const languageCode = "";
+    const { category, languageCode } = getHashVariables();
+
+    console.log("📂 Category:", category);
+    console.log("🌐 Language:", languageCode);
 
     this.questionsUrl = "/data/" + category;
 
