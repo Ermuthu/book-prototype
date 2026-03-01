@@ -1,160 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-  />
-  
-  </head>
-<body>
-  
- 
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Bootstrap demo</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+         crossorigin="anonymous"
+         />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+         />
+   </head>
+   <body>
+      <main id="main-container" class="container mt-5 py-3">
+         <div id="content" class="d-none" data-type="question">
+            <div id="navPane" class="d-flex">
+               <div class="flex-grow-1">
+                  <div class="d-flex align-items-center gap-1">
+                  </div>
+               </div>
+               <div>
+                  <button type="button" class="btn d-none" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Explain">
+                  <i class="fa-solid fa-question"></i>
+                  </button>
+               </div>
+               <div>
+                  <nav aria-label="Page Navigation">
+                     <ul class="pagination">
+                        <li class="page-item" title="Previous Question"><a class="page-link" href="javascript://" aria-label="Previous"><span aria-hidden="true"><i class="fa-solid fa-backward-step"></i></span></a></li>
+                        <li class="page-item" title="Next Question"><a class="page-link" href="javascript://" aria-label="Next"><span aria-hidden="true"><i class="fa-solid fa-forward-step"></i></span></a></li>
+                     </ul>
+                  </nav>
+               </div>
+               <div id="fabPane" class="dropup btn-group position-fixed bottom-0 end-0 rounded-circle me-2 mb-4 z-3"><button type="button" class="btn btn-primary d-none" title="Save Question">
+                  <i class="fa-solid fa-floppy-disk"></i> | Save&nbsp;
+                  </button>
+                  <button type="button" class="btn btn-primary" title="Check Question">
+                  <i class="fa-solid fa-check"></i> | Verify</button>
+               </div>
+            </div>
+            <div id="questionPane" class="row h-50">
+               <div class="col-6">
+                  <span id="questionContainer" class="lead"><textarea class="form-control h-100" placeholder="Question" id="qTxt" rows="3"></textarea></span>
+                  <div class="form-floating mb-3 h-100" id="matcheContainer"></div>
+               </div>
+               <div class="col-6">
+                  <span id="explanationContainer" class="d-none"><textarea class="form-control h-100" placeholder="Explanation" id="eTxt" rows="3"></textarea></span>
+                  <div class="form-floating mb-3 h-100" id="answerContainer"></div>
+               </div>
+            </div>
+         </div>
+         <div id="notfound" class="row d-none">
+            <div class="d-flex align-items-center justify-content-center">
+               <div class="text-center">
+                  <p class="fs-3">There are no questions</p>
+                  <a href="/" class="btn btn-primary">Go Home</a>
+               </div>
+            </div>
+         </div>
 
 
-<main id="main-container" class="container mt-5 py-3">
-  
-  <div id="content" class="d-none" data-type="question">
-    
-    <div id="navPane" class="d-flex">
-      <div class="flex-grow-1">
-         <div class="d-flex align-items-center gap-1">
+         <template id="radioList"><ul class="list-group">
+            <li class="list-group-item p-0"><label for="c1" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c1">
+              <span class="form-check-label w-100">Option 1</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="c2" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c2">
+              <span class="form-check-label w-100">Option 2</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="c3" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c3">
+              <span class="form-check-label w-100">Option 3</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="c4" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c4">
+              <span class="form-check-label w-100">Option 4</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="c5" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c5">
+              <span class="form-check-label w-100">Option 5</span></label>
+           </li>
+          </ul></template>
+          
+          <template id="checkboxList"><ul class="list-group">
+            <li class="list-group-item p-0"><label for="mc1" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc1" id="mc1">
+              <span class="form-check-label w-100">Option 1</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="mc2" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc2" id="mc2">
+              <span class="form-check-label w-100">Option 2</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="mc3" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc3" id="mc3">
+              <span class="form-check-label w-100">Option 3</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="mc4" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc4" id="mc4">
+              <span class="form-check-label w-100">Option 4</span></label>
+           </li>
+           <li class="list-group-item p-0"><label for="mc5" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc5" id="mc5">
+              <span class="form-check-label w-100">Option 5</span></label>
+           </li>
+          </ul></template>
+          
+          <template id="matchesList"><ul class="list-group">
+            <li class="list-group-item d-flex align-items-center">
+              <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
+              <div class="form-check"><label class="form-check-label"></label></div>
+           </li>
+           <li class="list-group-item d-flex align-items-center">
+              <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
+              <div class="form-check"><label class="form-check-label"></label></div>
+           </li>
+           <li class="list-group-item d-flex align-items-center">
+              <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
+              <div class="form-check"><label class="form-check-label"></label></div>
+           </li>
+           <li class="list-group-item d-flex align-items-center">
+              <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
+              <div class="form-check"><label class="form-check-label"></label></div>
+           </li>
+           <li class="list-group-item d-flex align-items-center">
+              <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
+              <div class="form-check"><label class="form-check-label"></label></div>
+           </li>
+          </ul></template>
+
+      </main>
+      <svg class="d-none">
+         <symbol id="search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5.0 10-1.397 1.398h-.001a1 1 0 00.21.326l3.85 3.85a1 1 0 001.415-1.414l-3.85-3.85a1 1 0 00-.327-.21zM12 6.5a5.5 5.5.0 11-11 0 5.5 5.5.0 0111 0z"/>
+         </symbol>
+         <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+            <path d="M6 .278a.768.768.0 01.08.858 7.208 7.208.0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527.0 1.04-.055 1.533-.16a.787.787.0 01.81.316.733.733.0 01-.031.893A8.349 8.349.0 018.344 16C3.734 16 0 12.286.0 7.71.0 4.266 2.114 1.312 5.124.06A.752.752.0 016 .278z"/>
+            <path d="M10.794 3.148a.217.217.0 01.412.0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217.0 010 .412l-1.162.387A1.734 1.734.0 0011.593 7.69l-.387 1.162a.217.217.0 01-.412.0l-.387-1.162A1.734 1.734.0 009.31 6.593l-1.162-.387a.217.217.0 010-.412l1.162-.387a1.734 1.734.0 001.097-1.097l.387-1.162zM13.863.099a.145.145.0 01.274.0l.258.774c.115.346.386.617.732.732l.774.258a.145.145.0 010 .274l-.774.258a1.156 1.156.0 00-.732.732l-.258.774a.145.145.0 01-.274.0l-.258-.774a1.156 1.156.0 00-.732-.732l-.774-.258a.145.145.0 010-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+         </symbol>
+         <symbol id="sun-fill" viewBox="0 0 16 16">
+            <path d="M8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5.0 01.5.5v2a.5.5.0 01-1 0v-2A.5.5.0 018 0zm0 13a.5.5.0 01.5.5v2a.5.5.0 01-1 0v-2A.5.5.0 018 13zm8-5a.5.5.0 01-.5.5h-2a.5.5.0 010-1h2a.5.5.0 01.5.5zM3 8a.5.5.0 01-.5.5h-2a.5.5.0 010-1h2A.5.5.0 013 8zm10.657-5.657a.5.5.0 010 .707l-1.414 1.415a.5.5.0 11-.707-.708l1.414-1.414a.5.5.0 01.707.0zm-9.193 9.193a.5.5.0 010 .707L3.05 13.657a.5.5.0 01-.707-.707l1.414-1.414a.5.5.0 01.707.0zm9.193 2.121a.5.5.0 01-.707.0l-1.414-1.414a.5.5.0 01.707-.707l1.414 1.414a.5.5.0 010 .707zM4.464 4.465a.5.5.0 01-.707.0L2.343 3.05a.5.5.0 11.707-.707l1.414 1.414a.5.5.0 010 .708z"/>
+         </symbol>
+      </svg>
+      <script src=/vendor/popper.min.js></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <div id=offcanvas-search class="offcanvas offcanvas-end w-50" tabindex=-1 data-bs-keyboard=false data-bs-backdrop=false>
+         <div class=offcanvas-header>
+            <div class="d-flex align-items-center w-100"><input id=searchBox type=search class=form-control placeholder=Search aria-label=Search></div>
+            <button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close title=Close></button>
+         </div>
+         <div id=search-container class=offcanvas-body>
+            <ul class=list-group></ul>
          </div>
       </div>
-      <div>
-         <button type="button" class="btn d-none" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Explain">
-         <i class="fa-solid fa-question"></i>
-         </button>
+      <div class="modal fade" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
+         <div class=modal-dialog>
+            <div class=modal-content>
+               <div class=modal-header>
+                  <h5 class=modal-title id=exampleModalLabel>Confimation</h5>
+                  <button type=button class=btn-close data-bs-dismiss=modal aria-label=Close></button>
+               </div>
+               <div class=modal-body>Are you sure you want to delete ?</div>
+               <div class=modal-footer><button type=button class="btn btn-secondary" data-bs-dismiss=modal>
+                  No
+                  </button>
+                  <button type=button class="btn btn-primary">Yes</button>
+               </div>
+            </div>
+         </div>
       </div>
-      <div>
-         <nav aria-label="Page Navigation">
-            <ul class="pagination">
-               <li class="page-item" title="Previous Question"><a class="page-link" href="javascript://" aria-label="Previous"><span aria-hidden="true"><i class="fa-solid fa-backward-step"></i></span></a></li>
-               <li class="page-item" title="Next Question"><a class="page-link" href="javascript://" aria-label="Next"><span aria-hidden="true"><i class="fa-solid fa-forward-step"></i></span></a></li>
-            </ul>
-         </nav>
+      <div aria-live=polite aria-atomic=true>
+         <div class="toast-container position-absolute top-0 end-0" id=toast-container></div>
       </div>
-      <div id="fabPane" class="dropup btn-group position-fixed bottom-0 end-0 rounded-circle me-2 mb-4 z-3"><button type="button" class="btn btn-primary d-none" title="Save Question">
-         <i class="fa-solid fa-floppy-disk"></i> | Save&nbsp;
-         </button>
-         <button type="button" class="btn btn-primary" title="Check Question">
-         <i class="fa-solid fa-check"></i> | Verify</button>
-      </div>
-   </div>
-
-
-<div id="questionPane" class="row h-50">
-
-  <div class="col-6">
-    <span id="questionContainer" class="lead"><textarea class="form-control h-100" placeholder="Question" id="qTxt" rows="3"></textarea></span>
-    <div class="form-floating mb-3 h-100" id="matcheContainer"></div>
- </div>
-
-
- <div class="col-6">
-  <span id="explanationContainer" class="d-none"><textarea class="form-control h-100" placeholder="Explanation" id="eTxt" rows="3"></textarea></span>
-  <div class="form-floating mb-3 h-100" id="answerContainer"></div>
-</div>
-
-
-
-</div></div>
-
-
-<div id="notfound" class="row d-none">
-  <div class="d-flex align-items-center justify-content-center">
-     <div class="text-center">
-        <p class="fs-3">There are no questions</p>
-        <a href="/" class="btn btn-primary">Go Home</a>
-     </div>
-  </div>
-</div>
-  
-  
-  
-  <template id="radioList"><ul class="list-group">
-    <li class="list-group-item p-0"><label for="c1" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c1">
-      <span class="form-check-label w-100">Option 1</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="c2" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c2">
-      <span class="form-check-label w-100">Option 2</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="c3" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c3">
-      <span class="form-check-label w-100">Option 3</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="c4" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c4">
-      <span class="form-check-label w-100">Option 4</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="c5" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="radio" name="flexRadioDefault" id="c5">
-      <span class="form-check-label w-100">Option 5</span></label>
-   </li>
-  </ul></template>
-  
-  <template id="checkboxList"><ul class="list-group">
-    <li class="list-group-item p-0"><label for="mc1" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc1" id="mc1">
-      <span class="form-check-label w-100">Option 1</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="mc2" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc2" id="mc2">
-      <span class="form-check-label w-100">Option 2</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="mc3" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc3" id="mc3">
-      <span class="form-check-label w-100">Option 3</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="mc4" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc4" id="mc4">
-      <span class="form-check-label w-100">Option 4</span></label>
-   </li>
-   <li class="list-group-item p-0"><label for="mc5" class="d-flex align-items-center p-2 w-100 m-0"><input class="form-check-input me-2" type="checkbox" name="mc5" id="mc5">
-      <span class="form-check-label w-100">Option 5</span></label>
-   </li>
-  </ul></template>
-  
-  <template id="matchesList"><ul class="list-group">
-    <li class="list-group-item d-flex align-items-center">
-      <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
-      <div class="form-check"><label class="form-check-label"></label></div>
-   </li>
-   <li class="list-group-item d-flex align-items-center">
-      <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
-      <div class="form-check"><label class="form-check-label"></label></div>
-   </li>
-   <li class="list-group-item d-flex align-items-center">
-      <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
-      <div class="form-check"><label class="form-check-label"></label></div>
-   </li>
-   <li class="list-group-item d-flex align-items-center">
-      <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
-      <div class="form-check"><label class="form-check-label"></label></div>
-   </li>
-   <li class="list-group-item d-flex align-items-center">
-      <span><span class="justify-content-start"><i class="fa-solid fa-arrow-up px-2"></i><i class="fa-solid fa-arrow-down"></i></span></span>
-      <div class="form-check"><label class="form-check-label"></label></div>
-   </li>
-  </ul></template>
-
-</main>
-  
-  
-  <svg class="d-none"><symbol id="search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5.0 10-1.397 1.398h-.001a1 1 0 00.21.326l3.85 3.85a1 1 0 001.415-1.414l-3.85-3.85a1 1 0 00-.327-.21zM12 6.5a5.5 5.5.0 11-11 0 5.5 5.5.0 0111 0z"/></symbol><symbol id="moon-stars-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768.0 01.08.858 7.208 7.208.0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527.0 1.04-.055 1.533-.16a.787.787.0 01.81.316.733.733.0 01-.031.893A8.349 8.349.0 018.344 16C3.734 16 0 12.286.0 7.71.0 4.266 2.114 1.312 5.124.06A.752.752.0 016 .278z"/><path d="M10.794 3.148a.217.217.0 01.412.0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217.0 010 .412l-1.162.387A1.734 1.734.0 0011.593 7.69l-.387 1.162a.217.217.0 01-.412.0l-.387-1.162A1.734 1.734.0 009.31 6.593l-1.162-.387a.217.217.0 010-.412l1.162-.387a1.734 1.734.0 001.097-1.097l.387-1.162zM13.863.099a.145.145.0 01.274.0l.258.774c.115.346.386.617.732.732l.774.258a.145.145.0 010 .274l-.774.258a1.156 1.156.0 00-.732.732l-.258.774a.145.145.0 01-.274.0l-.258-.774a1.156 1.156.0 00-.732-.732l-.774-.258a.145.145.0 010-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/></symbol><symbol id="sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5.0 01.5.5v2a.5.5.0 01-1 0v-2A.5.5.0 018 0zm0 13a.5.5.0 01.5.5v2a.5.5.0 01-1 0v-2A.5.5.0 018 13zm8-5a.5.5.0 01-.5.5h-2a.5.5.0 010-1h2a.5.5.0 01.5.5zM3 8a.5.5.0 01-.5.5h-2a.5.5.0 010-1h2A.5.5.0 013 8zm10.657-5.657a.5.5.0 010 .707l-1.414 1.415a.5.5.0 11-.707-.708l1.414-1.414a.5.5.0 01.707.0zm-9.193 9.193a.5.5.0 010 .707L3.05 13.657a.5.5.0 01-.707-.707l1.414-1.414a.5.5.0 01.707.0zm9.193 2.121a.5.5.0 01-.707.0l-1.414-1.414a.5.5.0 01.707-.707l1.414 1.414a.5.5.0 010 .707zM4.464 4.465a.5.5.0 01-.707.0L2.343 3.05a.5.5.0 11.707-.707l1.414 1.414a.5.5.0 010 .708z"/></symbol></svg>
-  <script src=/vendor/popper.min.js></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <div id=offcanvas-search class="offcanvas offcanvas-end w-50" tabindex=-1 data-bs-keyboard=false data-bs-backdrop=false><div class=offcanvas-header><div class="d-flex align-items-center w-100"><input id=searchBox type=search class=form-control placeholder=Search aria-label=Search></div><button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close title=Close></button></div><div id=search-container class=offcanvas-body><ul class=list-group></ul></div></div><div class="modal fade" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true><div class=modal-dialog><div class=modal-content><div class=modal-header><h5 class=modal-title id=exampleModalLabel>Confimation</h5><button type=button class=btn-close data-bs-dismiss=modal aria-label=Close></button></div><div class=modal-body>Are you sure you want to delete ?</div><div class=modal-footer><button type=button class="btn btn-secondary" data-bs-dismiss=modal>
-  No
-  </button>
-  <button type=button class="btn btn-primary">Yes</button></div>
-</div></div></div><div aria-live=polite aria-atomic=true><div class="toast-container position-absolute top-0 end-0" id=toast-container></div></div>
-
-
-<script type=text/javascript src=/js/app.js></script>
-<link rel=stylesheet href=/vendor/easymde.min.css>
-<script type=text/javascript src=/js/practice.js></script>
-</body></html>
+      <script type=text/javascript src=/js/app.js></script>
+      <link rel=stylesheet href=/vendor/easymde.min.css>
+      <script type=text/javascript src=/js/practice.js></script>
+   </body>
+</html>
