@@ -42,7 +42,6 @@
             <button
                class="btn bi bi-camera-reels"
                title="Videos"
-               disabled
                ></button>
             <button
                class="btn bi bi-clipboard2-check"
@@ -50,8 +49,15 @@
                ></button>
          </div>
       </header>
-      <main class="container my-5">
+      <main class="container">
          <div class="row">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Library</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+          </nav>
             <!-- Content column -->
             <article class="col-md-9 d-flex justify-content-center">
                <div class="shadow-sm rounded">
@@ -146,18 +152,27 @@
             </article>
             <!-- TOC column -->
             <aside class="col-md-3 d-none d-md-block">
-               <nav>
-                  <h6 class="text-muted mb-3">Table of Contents</h6>
-                  <ul class="list-unstyled">
-                     <li class="mb-2">
-                        <a href="#chapter-1">Chapter 1: Introduction</a>
-                     </li>
-                     <li class="mb-2">
-                        <a href="#chapter-2">Chapter 2: Core Concepts</a>
-                     </li>
-                     <li class="mb-2"><a href="#chapter-3">Chapter 3: Practice</a></li>
-                  </ul>
-               </nav>
+              <nav class="nav flex-column">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <h5>Table Of Contents</h5>
+                    <ul class="nav flex-column ms-3">
+                      <li class="nav-item"><a class="nav-link p-1" href="#what-hugo-book-theme-is">What Hugo-Book Theme Is</a></li>
+                      <li class="nav-item"><a class="nav-link p-1" href="#what-hugo-book-theme-is-not">What Hugo-Book Theme Is Not</a></li>
+                      <li class="nav-item"><a class="nav-link p-1" href="#probably-fast">Probably fast</a></li>
+                      <li class="nav-item"><a class="nav-link p-1" href="#50-js-free">50% JS free</a></li>
+                      <li class="nav-item">
+                        <a class="nav-link p-1" href="#minimalistic">Minimalistic</a>
+                        <ul class="nav flex-column ms-3">
+                          <li class="nav-item"><a class="nav-link p-1" href="#shortcodes">Shortcodes</a></li>
+                          <li class="nav-item"><a class="nav-link p-1" href="#even-more">Even more</a></li>
+                          <li class="nav-item"><a class="nav-link p-1" href="#made-to-be-extendable">Made to be extendable</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
             </aside>
          </div>
       </main>
