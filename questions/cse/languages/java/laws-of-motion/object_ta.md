@@ -6,7 +6,7 @@ choices:
   - "நிறை வீத மாற்றம்"
 answer:
   - "உந்த மாற்றம்"
-# explanation: "These are the two primary OOP principles."
+explanation: "கணத்தாக்கு J=F×Δt=Δp  என்பதால் இது உந்தத்தின் மாற்றத்திற்குச் சமம்."
 ---
 
 கணத்தாக்கு கீழ்க்கண்டவற்றுள் எதற்குச் சமமானது? 
