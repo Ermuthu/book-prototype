@@ -6,7 +6,7 @@ choices:
   - "Insufficient blood supply to heart muscles"
 answer:
   - "Insufficient blood supply to heart muscles"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Coronary heart disease is due to insufficient blood supply to heart muscles."
 ---
 
 Coronary heart disease is due to

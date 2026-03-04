@@ -6,7 +6,7 @@ choices:
   - "Supression of brain function"
 answer:
   - "Cirrhosis of liver"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Excessive consumption of alcohol leads to cirrhosis of the liver."
 ---
 
  Excessive consumption of alcohol leads to

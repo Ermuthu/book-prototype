@@ -6,7 +6,7 @@ choices:
   - "அக்டோபர் 2"
 answer:
   - "மே 31"
-# explanation: "These are the two primary OOP principles."
+explanation: "உலக புகையிலை எதிர்ப்பு தினம் மே 31-ஆம் தேதியில் கொண்டாடப்படுகிறது."
 ---
 
  உலக புகையிலை எதிர்ப்பு தினம்.

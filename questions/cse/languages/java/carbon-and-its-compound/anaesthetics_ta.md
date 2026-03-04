@@ -6,7 +6,7 @@ choices:
     - "ஆல்கஹால்"
 answer:
     - "ஆல்டிஹைடு"
-explanation: ""
+explanation: "CH₃CHO இன் பெயர் ஆல்டிஹைடு ஆகும்."
 ---
 
 {{< katex >}} (CH_3CHO) {{</ katex >}} இன் பெயர்:

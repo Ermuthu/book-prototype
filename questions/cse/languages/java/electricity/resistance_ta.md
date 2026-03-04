@@ -6,7 +6,7 @@ choices:
   - "ஓம் மீட்டர்"
 answer:
   - "ஓம்"
-explanation: 
+explanation: "மின்தடையின் SI அலகு ஓம் (Ohm) ஆகும்."
 ---
 மின்தடையின் SI அலகு
 

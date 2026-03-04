@@ -6,7 +6,7 @@ choices:
   - "Leptin"
 answer:
   - "Nicotine"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Tobacco consumption stimulates the secretion of adrenaline, and the component causing this is nicotine."
 ---
 
 Tobacco consumption is known to stimulate secretion of adrenaline. The component causing this could be

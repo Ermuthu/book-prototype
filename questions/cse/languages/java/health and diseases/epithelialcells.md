@@ -6,7 +6,7 @@ choices:
   - "Lipoma"
 answer:
   - "Carcinoma"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Cancer of the epithelial cells is called carcinoma."
 ---
 
 Cancer of the epithelial cells is called

@@ -6,7 +6,7 @@ choices:
   - "Undergoing rapid division"
 answer:
   - "Undergoing rapid division"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Cancer cells are more easily damaged by radiation than normal cells because they are undergoing rapid division."
 ---
 
  Cancer cells are more easily damaged by radiations than normal cells because they are

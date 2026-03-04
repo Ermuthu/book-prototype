@@ -6,7 +6,7 @@ choices:
   - "AIDS"
 answer:
   - "Diabetes mellitus"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Polyphagia is a condition seen in Diabetes mellitus."
 ---
 
 Polyphagia is a condition seen in

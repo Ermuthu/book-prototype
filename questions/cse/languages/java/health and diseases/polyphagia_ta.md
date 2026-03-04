@@ -6,7 +6,7 @@ choices:
   - "எய்ட்ஸ்"
 answer:
   - "டயாபடீஸ் மெல்லிடஸ்"
-# explanation: "These are the two primary OOP principles."
+explanation: "பாலிபேஜியா என்ற நிலை டயாபடீஸ் மெல்லிடஸில் காணப்படுகிறது."
 ---
 
  பாலிபேஜியா என்ற நிலை _____________ல் காணப்படுகிறது.

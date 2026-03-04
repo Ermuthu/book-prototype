@@ -6,7 +6,7 @@ choices:
   - "Central nervous system"
 answer:
   - "Central nervous system"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Alcohol affects the central nervous system immediately after drinking."
 ---
 
 Where does alcohol effect immediately after drinking? 

@@ -6,7 +6,7 @@ choices:
   - "Crown gall tumour"
 answer:
   - "NMalignant tumour"
-  # explanation: "These are the two primary OOP principles."
+explanation: "Metastasis is associated with malignant tumours."
 ---
 
 Metastasis is associated with

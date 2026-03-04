@@ -6,7 +6,7 @@ choices:
   - "October 2"
 answer:
   - "May 31"
-  # explanation: "These are the two primary OOP principles."
+explanation: "World 'No Tobacco Day' is observed on May 31."
 ---
 
 World 'No Tobacco Day' is observed on
