@@ -6,11 +6,7 @@
   "author": "Sathish Kumar Thiyagarajan",
   "license": "ISC",
   "scripts": {
-    "clean": "rimraf dist",
-    "copy:bootstrap": "cpy \"node_modules/bootstrap/dist/**/*\" dist/bootstrap",
-    "copy:vendor": "node scripts/copy-vendor-css.js",
-    "copy:fonts": "cpy \"node_modules/@fortawesome/fontawesome-free/webfonts/**/*\" dist/webfonts",
-    
+    "clean": "rimraf dist",   
     "watch:site": "onchange \"site\" -- run-s build:site",
     "watch:questions": "node scripts/build-questions.js --watch",
     "start": "npm run build && run-p watch:* serve",
@@ -19,7 +15,7 @@
     
     "build:site": "hugo --minify -d ../dist -s site",
     "build:questions": "node scripts/build-questions.js",
-    "build": "run-s clean copy:fonts copy:bootstrap copy:vendor build:*",
+    "build": "run-s clean build:*",
     "postinstall": "npm run build"
   },
   "devDependencies": {
