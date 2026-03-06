@@ -195,18 +195,18 @@ export default class PracticeScreen {
     this.questionPane.doExplain(explain);
   }
 
-  doEdit() {
-    if (this.modeBtn.classList.contains("fa-pencil")) {
-      this.explainToggleBtn.classList.remove("d-none");
-      this.checkBtn.classList.add("d-none");
-      this.questionPane.readOnly = false;
-      this.loadQuestions();
-    } else {
-      this.explainToggleBtn.classList.add("d-none");
-      this.checkBtn.classList.remove("d-none");
-      this.questionPane.readOnly = true;
-    }
-  }
+  // doEdit() {
+  //   if (this.modeBtn.classList.contains("fa-pencil")) {
+  //     this.explainToggleBtn.classList.remove("d-none");
+  //     this.checkBtn.classList.add("d-none");
+  //     this.questionPane.readOnly = false;
+  //     this.loadQuestions();
+  //   } else {
+  //     this.explainToggleBtn.classList.add("d-none");
+  //     this.checkBtn.classList.remove("d-none");
+  //     this.questionPane.readOnly = true;
+  //   }
+  // }
 
   doSubmit() {
     console.log("Submit Button clicked");
@@ -322,16 +322,10 @@ export default class PracticeScreen {
 
     fabPane.querySelectorAll("i").forEach((element) => {
       const classList = element.classList;
-      if (classList.contains("fa-floppy-disk")) {
-        element.parentElement.addEventListener("click", () => this.doSave());
-        this.saveBtn = element.parentElement;
-      } else if (classList.contains("fa-check")) {
+      if  (classList.contains("fa-check")) {
         this.checkBtn = element.parentElement;
         element.parentElement.addEventListener("click", () => this.doCheck());
-      } else if (classList.contains("fa-envelope")) {
-        this.submitBtn = element.parentElement;
-        element.parentElement.addEventListener("click", () => this.doSubmit());
-      }
+      } 
     });
 
     navPane.querySelectorAll("i").forEach((element) => {
@@ -343,23 +337,24 @@ export default class PracticeScreen {
             !this.explainToggleBtn.classList.contains("btn-primary")
           )
         );
-      } else if (classList.contains("fa-pencil")) {
-        this.modeBtn = element;
-        element.parentElement.addEventListener("click", () => this.doEdit());
-      } else if (classList.contains("fa-trash-alt")) {
-        this.deleteBtn = element.parentElement;
-        element.parentElement.addEventListener("on-confirmation", () =>
-          this.doDelete()
-        );
-      } else if (classList.contains("fa-plus")) {
-        const ulEl = element.parentElement.nextElementSibling;
-        this.addBtn = element.parentElement;
-        ulEl.querySelectorAll("li").forEach((liElement) => {
-          liElement.parentElement.addEventListener("click", () =>
-            this.doAdd(liElement.dataset.type)
-          );
-        });
       }
+      //  else if (classList.contains("fa-pencil")) {
+      //   this.modeBtn = element;
+      //   element.parentElement.addEventListener("click", () => this.doEdit());
+      // } else if (classList.contains("fa-trash-alt")) {
+      //   this.deleteBtn = element.parentElement;
+      //   element.parentElement.addEventListener("on-confirmation", () =>
+      //     this.doDelete()
+      //   );
+      // } else if (classList.contains("fa-plus")) {
+      //   const ulEl = element.parentElement.nextElementSibling;
+      //   this.addBtn = element.parentElement;
+      //   ulEl.querySelectorAll("li").forEach((liElement) => {
+      //     liElement.parentElement.addEventListener("click", () =>
+      //       this.doAdd(liElement.dataset.type)
+      //     );
+      //   });
+      // }
     });
 
     navPane.querySelectorAll("a.page-link").forEach((element) => {
