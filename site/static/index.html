@@ -48,6 +48,9 @@
           <button
             class="btn bi bi-clipboard2-check fs-5 px-2"
             title="Practice"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#practicepanel"
+            aria-controls="practicepanel"
           ></button>
         </div>
       </div>
@@ -239,7 +242,7 @@
     </div>
 
     <div
-      class="offcanvas offcanvas-end"
+      class="offcanvas offcanvas-end w-100"
       data-bs-scroll="true"
       data-bs-backdrop="false"
       tabindex="-1"
@@ -259,6 +262,28 @@
         <p>Try scrolling the rest of the page to see this option in action.</p>
       </div>
     </div>
+
+    <div
+    class="offcanvas offcanvas-end w-100"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    tabindex="-1"
+    id="practicepanel"
+    aria-labelledby="practicepanelLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="practicepanelLabel">Practice</h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Question and Options section</p>
+    </div>
+  </div>
     
     
     
