@@ -295,7 +295,7 @@ export default class PracticeScreen {
 
     fabPane.querySelectorAll("i").forEach((element) => {
       const classList = element.classList;
-      if  (classList.contains("fa-check")) {
+      if  (classList.contains("bi-check")) {
         this.checkBtn = element.parentElement;
         element.parentElement.addEventListener("click", () => this.doCheck());
       } 
@@ -303,7 +303,7 @@ export default class PracticeScreen {
 
     navPane.querySelectorAll("i").forEach((element) => {
       const classList = element.classList;
-      if (classList.contains("fa-question")) {
+      if (classList.contains("bi-question")) {
         this.explainToggleBtn = element.parentElement;
         this.explainToggleBtn.addEventListener("click", () =>
           this.doExplain(

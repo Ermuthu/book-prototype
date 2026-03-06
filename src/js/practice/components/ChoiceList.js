@@ -39,7 +39,7 @@ export default class ChoiceList {
         labelEl.textContent = choice.label;
 
         liEl
-          .querySelector("i.fa-arrow-up")
+          .querySelector("i.bi-arrow-up")
           .addEventListener("click", (event) => {
             const liEl = event.currentTarget.parentElement.parentElement.parentElement;  // current value
 
@@ -52,7 +52,7 @@ export default class ChoiceList {
           });
 
         liEl
-          .querySelector("i.fa-arrow-down")
+          .querySelector("i.bi-arrow-down")
           .addEventListener("click", (event) => {
             const liEl =
               event.currentTarget.parentElement.parentElement.parentElement;

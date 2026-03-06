@@ -17,7 +17,7 @@ class GurukulamsPage {
       pre.appendChild(button);
       button.addEventListener('click', () => {
         navigator.clipboard.writeText(block.textContent).then(() => {
-          button.innerHTML = '<i class="fa fa-check"></i>';
+          button.innerHTML = '<i class="fa bi-check"></i>';
           setTimeout(() => (button.innerHTML = '<i class="fa fa-copy"></i>'), 1200);
         });
       });
