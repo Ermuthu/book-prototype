@@ -2,5 +2,6 @@ import PracticeScreen from "./practice/PracticeScreen";
 import markup from './_partials/questionsPane.html';
 
 // contentRoot.innerHTML = markup;
-document.getElementById("main-container").innerHTML = markup;
-new PracticeScreen();
+var contentRoot = document.getElementById("main-container");
+contentRoot.innerHTML = markup;
+new PracticeScreen(contentRoot);
