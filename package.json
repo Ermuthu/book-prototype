@@ -6,13 +6,12 @@
   "author": "Sathish Kumar Thiyagarajan",
   "license": "ISC",
   "scripts": {
-    "clean": "rimraf dist",   
+    "clean": "rimraf dist",
     "watch:site": "onchange \"site\" -- run-s build:site",
     "watch:questions": "node scripts/build-questions.js --watch",
     "start": "npm run build && run-p watch:* serve",
     "serve": "webpack serve",
     "build:js": "webpack",
-    
     "build:site": "hugo --minify -d ../dist -s site",
     "build:questions": "node scripts/build-questions.js",
     "build": "run-s clean build:*",
@@ -26,6 +25,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "cpy-cli": "^5.0.0",
     "gray-matter": "^4.0.3",
+    "html-loader": "^5.1.0",
     "hugo-bin": "0.144.8",
     "jsonschema": "^1.5.0",
     "npm-run-all": "4.1.5",

@@ -4,6 +4,14 @@ const glob = require('glob');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+    module: {
+      rules: [
+        {
+          test: /\.html$/i,
+          loader: "html-loader",
+        },
+      ],
+    },
     // Dynamically find all JS files in the src/js folder
     entry: glob.sync('./src/js/*.js').reduce((entries, file) => {
         const name = path.basename(file, '.js'); // Use filename as entry key

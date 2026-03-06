@@ -1,5 +1,26 @@
+import radioList from '../../_partials/radioList.html'
+import checkboxList from '../../_partials/checkboxList.html'
+import matchesList from '../../_partials/matchesList.html'
+
 export default class ChoiceList {
   constructor(isPracticeMode, templateName, choices, keepOrder) {
+
+    var templateEL = document.createElement('template');
+    templateEL.innerHTML = radioList;
+    templateEL.id = "radioList"
+    document.body.appendChild(templateEL);
+
+    var templateCL = document.createElement('template');
+    templateCL.innerHTML = checkboxList;
+    templateCL.id = "checkboxList"
+    document.body.appendChild(templateCL);
+
+    var templateML = document.createElement('template');
+    templateML.innerHTML = matchesList;
+    templateML.id = "matchesList"
+    document.body.appendChild(templateML);
+
+
     const template = document.getElementById(templateName);
 
     this._element = template.content.cloneNode(true).firstChild;
