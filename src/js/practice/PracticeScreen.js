@@ -92,7 +92,7 @@ export default class PracticeScreen {
       return {
         ...q,
         id: questionId,
-        choices,
+        choices: this.shuffle(choices),
         matches,
       };
     });
