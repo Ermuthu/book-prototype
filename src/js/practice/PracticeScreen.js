@@ -111,7 +111,7 @@ export default class PracticeScreen {
         ...q,
         id: questionId,
         choices: this.shuffle(choices),
-        matches,
+        matches: this.shuffle(matches),
       };
     });
   }
