@@ -1,395 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Materials</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-    <style>
-.dropdown-toggle { outline: 0; }
 
-.btn-toggle {
-  padding: .25rem .5rem;
-  font-weight: 600;
-  color: var(--bs-emphasis-color);
-  background-color: transparent;
-}
-.btn-toggle:hover,
-.btn-toggle:focus {
-  color: rgba(var(--bs-emphasis-color-rgb), .85);
-  background-color: var(--bs-tertiary-bg);
-}
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materials</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <style>
+    .dropdown-toggle {
+      outline: 0;
+    }
 
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
-}
+    .btn-toggle {
+      padding: .25rem .5rem;
+      font-weight: 600;
+      color: var(--bs-emphasis-color);
+      background-color: transparent;
+    }
 
-[data-bs-theme="dark"] .btn-toggle::before {
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-}
+    .btn-toggle:hover,
+    .btn-toggle:focus {
+      color: rgba(var(--bs-emphasis-color-rgb), .85);
+      background-color: var(--bs-tertiary-bg);
+    }
 
-.btn-toggle[aria-expanded="true"] {
-  color: rgba(var(--bs-emphasis-color-rgb), .85);
-}
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
-}
+    .btn-toggle::before {
+      width: 1.25em;
+      line-height: 0;
+      content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+      transition: transform .35s ease;
+      transform-origin: .5em 50%;
+    }
 
-.btn-toggle-nav a {
-  padding: .1875rem .5rem;
-  margin-top: .125rem;
-  margin-left: 1.25rem;
-}
-.btn-toggle-nav a:hover,
-.btn-toggle-nav a:focus {
-  background-color: var(--bs-tertiary-bg);
-}
+    [data-bs-theme="dark"] .btn-toggle::before {
+      content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    }
 
-.scrollarea {
-  overflow-y: auto;
-}
+    .btn-toggle[aria-expanded="true"] {
+      color: rgba(var(--bs-emphasis-color-rgb), .85);
+    }
 
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-      <div class="container-fluid">
-        <span
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-        >
-          <i
-            class="bi bi-list me-2 fs-4"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#sidebarOffcanvas"
-            aria-controls="sidebarOffcanvas"
-            aria-label="Toggle menu"
-          ></i>
-          <a href="#">Hugo Book</a>
-        </span>
+    .btn-toggle[aria-expanded="true"]::before {
+      transform: rotate(90deg);
+    }
 
-        <div class="d-flex align-items-center ms-auto">
-          <button
-            class="btn bi bi-link-45deg fs-5 px-2"
-            title="References"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#referencepanel"
-            aria-controls="referencepanel"
-          ></button>
+    .btn-toggle-nav a {
+      padding: .1875rem .5rem;
+      margin-top: .125rem;
+      margin-left: 1.25rem;
+    }
 
-          <button
-            class="btn bi bi-camera-reels fs-5 px-2"
-            title="Videos"
-          ></button>
+    .btn-toggle-nav a:hover,
+    .btn-toggle-nav a:focus {
+      background-color: var(--bs-tertiary-bg);
+    }
 
-          <button
-            class="btn bi bi-clipboard2-check fs-5 px-2"
-            title="Practice"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#practicepanel"
-            aria-controls="practicepanel"
-          ></button>
-        </div>
+    .scrollarea {
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+      <span class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <i class="bi bi-list me-2 fs-4" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas"
+          aria-controls="sidebarOffcanvas" aria-label="Toggle menu"></i>
+        <a href="#">Hugo Book</a>
+      </span>
+
+      <div class="d-flex align-items-center ms-auto">
+        <button class="btn bi bi-link-45deg fs-5 px-2" title="References" data-bs-toggle="offcanvas"
+          data-bs-target="#referencepanel" aria-controls="referencepanel"></button>
+
+        <button class="btn bi bi-camera-reels fs-5 px-2" title="Videos"></button>
+
+        <button class="btn bi bi-book fs-5 px-2" title="Books" data-bs-toggle="offcanvas" data-bs-target="#bookspanel"
+          aria-controls="bookspanel"></button>
+
+        <button class="btn bi bi-clipboard2-check fs-5 px-2" title="Practice" data-bs-toggle="offcanvas"
+          data-bs-target="#practicepanel" aria-controls="practicepanel"></button>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <main class="container">
-      <div class="row">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+  <main class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Library</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Data</li>
+        </ol>
+      </nav>
+      <!-- Content column -->
+      <article class="col-md-9 d-flex justify-content-center">
+        <div class="shadow-sm rounded">
+          <h1>Caput vino delphine in tamen vias</h1>
+          <h2>Cognita laeva illo fracta</h2>
+          <p>
+            Lorem markdownum pavent auras, surgit nunc cingentibus libet
+            <strong>Laomedonque que</strong> est. Pastor
+            <a href="#">An</a> arbor filia foedat, ne
+            <a href="#">fugit aliter</a>, per. Helicona illas et callida
+            neptem est <em>Oresitrophos</em> caput, dentibus est venit. Tenet
+            reddite <a href="#">famuli</a> praesentem fortibus, quaeque vis
+            foret si frondes <em>gelidos</em> gravidae circumtulit
+            <a href="#">inpulit armenta nativum</a>.
+          </p>
+          <ol>
+            <li>Te at cruciabere vides rubentis manebo</li>
+            <li>Maturuit in praetemptat ruborem ignara postquam habitasse</li>
+            <li>
+              Subitarum supplevit quoque fontesque venabula spretis modo
+            </li>
+            <li>Montis tot est mali quasque gravis</li>
+            <li>Quinquennem domus arsit ipse</li>
+            <li>Pellem turis pugnabant locavit</li>
           </ol>
-        </nav>
-        <!-- Content column -->
-        <article class="col-md-9 d-flex justify-content-center">
-          <div class="shadow-sm rounded">
-            <h1>Caput vino delphine in tamen vias</h1>
-            <h2>Cognita laeva illo fracta</h2>
-            <p>
-              Lorem markdownum pavent auras, surgit nunc cingentibus libet
-              <strong>Laomedonque que</strong> est. Pastor
-              <a href="#">An</a> arbor filia foedat, ne
-              <a href="#">fugit aliter</a>, per. Helicona illas et callida
-              neptem est <em>Oresitrophos</em> caput, dentibus est venit. Tenet
-              reddite <a href="#">famuli</a> praesentem fortibus, quaeque vis
-              foret si frondes <em>gelidos</em> gravidae circumtulit
-              <a href="#">inpulit armenta nativum</a>.
-            </p>
-            <ol>
-              <li>Te at cruciabere vides rubentis manebo</li>
-              <li>Maturuit in praetemptat ruborem ignara postquam habitasse</li>
-              <li>
-                Subitarum supplevit quoque fontesque venabula spretis modo
-              </li>
-              <li>Montis tot est mali quasque gravis</li>
-              <li>Quinquennem domus arsit ipse</li>
-              <li>Pellem turis pugnabant locavit</li>
-            </ol>
-            <h2>Natus quaerere</h2>
-            <p>
-              Pectora et sine mulcere, coniuge dum tincta incurvae. Quis iam;
-              est dextra Peneosque, metuis a verba, primo. Illa sed colloque
-              suis: magno: gramen, aera excutiunt concipit.
-            </p>
-            <blockquote>
-              Phrygiae petendo suisque extimuit, super, pars quod audet! Turba
-              negarem. Fuerat attonitus; et dextra retinet sidera ulnas undas
-              instimulat vacuae generis? <em>Agnus</em> dabat et ignotis
-              dextera, sic tibi pac <strong>feriente at mora</strong> euhoeque
-              <em>comites hostem</em> vestras Phineus. Vultuque sanguine
-              dominoque <a href="#">metuit risi</a> fama vergit summaque meus
-              clarissimus artesque tinguebat successor nominis cervice
-              caelicolae.
-            </blockquote>
-            <h2>Limitibus misere sit</h2>
-            <p>
-              Aurea non fata repertis praerupit feruntur simul, meae hosti
-              lentaque <em>citius levibus</em>, cum sede dixit, Phaethon texta.
-              <em>Albentibus summos</em> multifidasque iungitur loquendi an
-              pectore, mihi ursaque omnia adfata, aeno parvumque in animi
-              perlucentes. Epytus agis ait vixque clamat ornum adversam spondet,
-              quid sceptra ipsum <strong>est</strong>. Reseret nec; saeva suo
-              passu debentia linguam terga et aures et cervix
-              <a href="#">de</a> ubera. Coercet gelidumque manus, doluit
-              volvitur induta?
-            </p>
-            <h2>Enim sua</h2>
-            <p>
-              Nec dis certa fuit socer, Nonacria <strong>dies</strong> manet
-              tacitaque sibi? Sucis est iactata Castrumque iudex, et iactato
-              quoque terraeque es tandem et maternos vittis. Lumina litus bene
-              poenamque animos callem ne tuas in leones illam dea cadunt genus.
-            </p>
-            <h2>Germana aves pignus tecta</h2>
-            <p>
-              Sentiet et ferali errorem fessam, coercet superbus, Ascaniumque in
-              pennis mediis; dolor? Vidit imi <strong>Aeacon</strong> perfida
-              propositos adde, tua Somni Fluctibus errante lustrat non. Tamen
-              inde, vos videt e flammis Scythica parantem rupisque pectora
-              umbras.
-            </p>
-            <div class="d-flex mb-3">
-              <div class="me-auto p-2">
-                <a href="#" class="prev-topic1"
-                  ><i class="bi bi-calendar fs-6 text-dark"></i> January 1,
-                  2026</a
-                >
-              </div>
-              <div class="p-2">
-                <a href="#" class="next-topic"
-                  ><i class="bi bi-pencil-square fs-6 text-dark"></i> Edit this
-                  page</a
-                >
-              </div>
+          <h2>Natus quaerere</h2>
+          <p>
+            Pectora et sine mulcere, coniuge dum tincta incurvae. Quis iam;
+            est dextra Peneosque, metuis a verba, primo. Illa sed colloque
+            suis: magno: gramen, aera excutiunt concipit.
+          </p>
+          <blockquote>
+            Phrygiae petendo suisque extimuit, super, pars quod audet! Turba
+            negarem. Fuerat attonitus; et dextra retinet sidera ulnas undas
+            instimulat vacuae generis? <em>Agnus</em> dabat et ignotis
+            dextera, sic tibi pac <strong>feriente at mora</strong> euhoeque
+            <em>comites hostem</em> vestras Phineus. Vultuque sanguine
+            dominoque <a href="#">metuit risi</a> fama vergit summaque meus
+            clarissimus artesque tinguebat successor nominis cervice
+            caelicolae.
+          </blockquote>
+          <h2>Limitibus misere sit</h2>
+          <p>
+            Aurea non fata repertis praerupit feruntur simul, meae hosti
+            lentaque <em>citius levibus</em>, cum sede dixit, Phaethon texta.
+            <em>Albentibus summos</em> multifidasque iungitur loquendi an
+            pectore, mihi ursaque omnia adfata, aeno parvumque in animi
+            perlucentes. Epytus agis ait vixque clamat ornum adversam spondet,
+            quid sceptra ipsum <strong>est</strong>. Reseret nec; saeva suo
+            passu debentia linguam terga et aures et cervix
+            <a href="#">de</a> ubera. Coercet gelidumque manus, doluit
+            volvitur induta?
+          </p>
+          <h2>Enim sua</h2>
+          <p>
+            Nec dis certa fuit socer, Nonacria <strong>dies</strong> manet
+            tacitaque sibi? Sucis est iactata Castrumque iudex, et iactato
+            quoque terraeque es tandem et maternos vittis. Lumina litus bene
+            poenamque animos callem ne tuas in leones illam dea cadunt genus.
+          </p>
+          <h2>Germana aves pignus tecta</h2>
+          <p>
+            Sentiet et ferali errorem fessam, coercet superbus, Ascaniumque in
+            pennis mediis; dolor? Vidit imi <strong>Aeacon</strong> perfida
+            propositos adde, tua Somni Fluctibus errante lustrat non. Tamen
+            inde, vos videt e flammis Scythica parantem rupisque pectora
+            umbras.
+          </p>
+          <div class="d-flex mb-3">
+            <div class="me-auto p-2">
+              <a href="#" class="prev-topic1"><i class="bi bi-calendar fs-6 text-dark"></i> January 1,
+                2026</a>
             </div>
-            <div class="d-flex mb-3">
-              <div class="me-auto p-2">
-                <a href="#" class="prev-topic"
-                  ><i class="bi bi-arrow-left-circle text-dark"></i> Previous:
-                  Topic</a
-                >
-              </div>
-              <div class="p-2">
-                <a href="#" class="next-topic"
-                  >Next: Topic <i class="bi bi-arrow-right-circle text-dark"></i
-                ></a>
-              </div>
+            <div class="p-2">
+              <a href="#" class="next-topic"><i class="bi bi-pencil-square fs-6 text-dark"></i> Edit this
+                page</a>
             </div>
           </div>
-        </article>
-        <!-- TOC column -->
-        <aside class="col-md-3 d-none d-md-block">
-          <nav class="nav flex-column">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <h5>Table Of Contents</h5>
-                <ul class="nav flex-column ms-3">
-                  <li class="nav-item">
-                    <a class="nav-link p-1" href="#what-hugo-book-theme-is"
-                      >What Hugo-Book Theme Is</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link p-1" href="#what-hugo-book-theme-is-not"
-                      >What Hugo-Book Theme Is Not</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link p-1" href="#probably-fast"
-                      >Probably fast</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link p-1" href="#50-js-free">50% JS free</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link p-1" href="#minimalistic"
-                      >Minimalistic</a
-                    >
-                    <ul class="nav flex-column ms-3">
-                      <li class="nav-item">
-                        <a class="nav-link p-1" href="#shortcodes"
-                          >Shortcodes</a
-                        >
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link p-1" href="#even-more">Even more</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link p-1" href="#made-to-be-extendable"
-                          >Made to be extendable</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
+          <div class="d-flex mb-3">
+            <div class="me-auto p-2">
+              <a href="#" class="prev-topic"><i class="bi bi-arrow-left-circle text-dark"></i> Previous:
+                Topic</a>
+            </div>
+            <div class="p-2">
+              <a href="#" class="next-topic">Next: Topic <i class="bi bi-arrow-right-circle text-dark"></i></a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- TOC column -->
+      <aside class="col-md-3 d-none d-md-block">
+        <nav class="nav flex-column">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <h5>Table Of Contents</h5>
+              <ul class="nav flex-column ms-3">
+                <li class="nav-item">
+                  <a class="nav-link p-1" href="#what-hugo-book-theme-is">What Hugo-Book Theme Is</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link p-1" href="#what-hugo-book-theme-is-not">What Hugo-Book Theme Is Not</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link p-1" href="#probably-fast">Probably fast</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link p-1" href="#50-js-free">50% JS free</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link p-1" href="#minimalistic">Minimalistic</a>
+                  <ul class="nav flex-column ms-3">
+                    <li class="nav-item">
+                      <a class="nav-link p-1" href="#shortcodes">Shortcodes</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link p-1" href="#even-more">Even more</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link p-1" href="#made-to-be-extendable">Made to be extendable</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </main>
+
+  <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="sidebarOffcanvas"
+    aria-labelledby="sidebarOffcanvasLabel">
+    <div class="offcanvas-header pb-1">
+      <form class="w-100 me-3" role="search">
+        <input type="search" class="form-control" placeholder="Search Book" aria-label="Search" />
+      </form>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-3">
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+            Home
+          </button>
+          <div class="collapse show" id="home-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
             </ul>
-          </nav>
-        </aside>
-      </div>
-    </main>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+            Dashboard
+          </button>
+          <div class="collapse" id="dashboard-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+            Orders
+          </button>
+          <div class="collapse" id="orders-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
+              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
 
-    <div
-      class="offcanvas offcanvas-start"
-      data-bs-scroll="true"
-      tabindex="-1"
-      id="sidebarOffcanvas"
-      aria-labelledby="sidebarOffcanvasLabel"
-    >
-      <div class="offcanvas-header pb-1">
-        <form class="w-100 me-3" role="search">
-          <input
-            type="search"
-            class="form-control"
-            placeholder="Search Book"
-            aria-label="Search"
-          />
-        </form>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body px-3">
-        <ul class="list-unstyled ps-0">
-          <li class="mb-1">
-             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-             Home
-             </button> 
-             <div class="collapse show" id="home-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-                </ul>
-             </div>
-          </li>
-          <li class="mb-1">
-             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-             Dashboard
-             </button> 
-             <div class="collapse" id="dashboard-collapse" >
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-                </ul>
-             </div>
-          </li>
-          <li class="mb-1">
-             <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-             Orders
-             </button> 
-             <div class="collapse" id="orders-collapse">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-                   <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-                </ul>
-             </div>
-          </li>
-       </ul>
-        
-      </div>
     </div>
+  </div>
 
-    <div
-      class="offcanvas offcanvas-end"
-      data-bs-scroll="true"
-      data-bs-backdrop="false"
-      tabindex="-1"
-      id="referencepanel"
-      aria-labelledby="referencepanelLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="referencepanelLabel">References</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
-      </div>
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="referencepanel"
+    aria-labelledby="referencepanelLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="referencepanelLabel">References</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body">
+      <p>Try scrolling the rest of the page to see this option in action.</p>
+    </div>
+  </div>
 
-    <div
-    class="offcanvas offcanvas-end w-100"
-    data-bs-scroll="true"
-    data-bs-backdrop="false"
-    tabindex="-1"
-    id="practicepanel"
-    aria-labelledby="practicepanelLabel"
-  >
+  <div class="offcanvas offcanvas-end w-25" tabindex="-1" id="bookspanel" data-bs-keyboard="false"
+    data-bs-backdrop="false" aria-labelledby="bookslabelLabel">
+    <div class="offcanvas-header">
+      <h6 class="offcanvas-title d-none d-sm-block" id="bookslabelLabel">Books</h6>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Try scrolling the rest of the page to see this option in action.</p>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end w-100" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+    id="practicepanel" aria-labelledby="practicepanelLabel">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="practicepanelLabel">Practice</h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div  id="main-container" data-practice-category="cse/languages/java" data-practice-lang="ta" class="offcanvas-body">
+    <div id="main-container" data-practice-category="cse/languages/java" data-practice-lang="ta" class="offcanvas-body">
       <p>Question and Options section</p>
     </div>
   </div>
-    
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
 
-      <div aria-live=polite aria-atomic=true>
-         <div class="toast-container position-absolute top-0 end-0" id=toast-container></div>
-      </div>
-      <script type=text/javascript src=/js/app.js></script>
-      <!-- <link rel=stylesheet href=/vendor/easymde.min.css> -->
-      <script type=text/javascript src=/js/practice.js></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <div aria-live=polite aria-atomic=true>
+    <div class="toast-container position-absolute top-0 end-0" id=toast-container></div>
+  </div>
+  <script type=text/javascript src=/js/app.js></script>
+  <!-- <link rel=stylesheet href=/vendor/easymde.min.css> -->
+  <script type=text/javascript src=/js/practice.js></script>
 
 
 
-  </body>
+</body>
+
 </html>
