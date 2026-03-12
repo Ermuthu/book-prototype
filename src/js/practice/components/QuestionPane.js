@@ -3,7 +3,8 @@ import EasyMDE from "easymde";
 
 export default class QuestionPane {
   
-  constructor() {
+  constructor(_suffleFn) {
+    this.shuffle = _suffleFn;
     this.questionPane = document.getElementById("questionPane");
 
     this.answerContainer = document.getElementById("answerContainer");
@@ -94,17 +95,17 @@ export default class QuestionPane {
     if(!answerComponent) {
       switch (_question.type) {
         case "CHOOSE_THE_BEST":
-          this.chooseTheBestList = new ChoiceList(this.isEditable, "radioList", _question.choices);
+          this.chooseTheBestList = new ChoiceList(this.isEditable, "radioList", this.shuffle(_question.choices));
           this.answerContainer.appendChild(this.chooseTheBestList.element);
           this.chooseTheBestList.element.name = _question.id;
           break;
         case "MULTI_CHOICE":
-          this.mcqList = new ChoiceList(this.isEditable,"checkboxList", _question.choices);
+          this.mcqList = new ChoiceList(this.isEditable,"checkboxList", this.shuffle(_question.choices));
           this.answerContainer.appendChild(this.mcqList.element);
           this.mcqList.element.name = _question.id;
           break;
         case "MATCH_THE_FOLLOWING":
-          this.mtfList = new ChoiceList(this.isEditable,"matchesList", _question.matches);
+          this.mtfList = new ChoiceList(this.isEditable,"matchesList", this.shuffle(_question.matches));
           this.answerContainer.appendChild(this.mtfList.element);
           this.mtfList.element.name = _question.id;
   
