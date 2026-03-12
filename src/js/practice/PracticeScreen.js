@@ -7,19 +7,21 @@ export default class PracticeScreen {
 
     const languageCode = contentRoot.dataset.practiceLang;
 
-    
-
     const url = window.location;
 
-    const path = url.pathname;
+    let path = url.pathname;
 
     // We look for /docs followed by a slash or the end of the string
     const docsIndex = path.indexOf('/docs');
 
     if (docsIndex !== -1) {
+
         // 1. Take everything BEFORE /docs: path.substring(0, docsIndex)
         // 2. Append /data/
-        const newPath = path.substring(0, docsIndex) + '/data/';
+        let newPath = path.substring(0, docsIndex) + '/data/';
+
+        newPath = newPath.replace(`/${languageCode}/data`, '/data');
+
         this.questionsUrl = `${url.origin}${newPath}`+ category;
     } else {
       this.questionsUrl = "/data/" + category;
