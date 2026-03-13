@@ -242,13 +242,38 @@ export default class PracticeScreen {
             .split(",")
             .map((id) => id.trim())
             .sort();
+    
 
-          isCorrect =
-            JSON.stringify(correctChoiceIds) ===
-            JSON.stringify(selectedChoiceIds);
-          break;
+    const choiceListElement = this.questionPane.mcqList.element;
+    const listItems = choiceListElement.querySelectorAll("li");
+    listItems.forEach((liEl) => {
+        const input = liEl.querySelector("input");
+        const choiceId = input.value;
+
+        if (input.checked) {
+            if (correctChoiceIds.includes(choiceId)) {
+             
+                liEl.classList.add("bg-success");
+                liEl.classList.remove("bg-danger");
+            } else {
+           
+                liEl.classList.add("bg-danger");
+                liEl.classList.remove("bg-success");
+            }
         }
+    });
 
+    isCorrect = selectedChoiceIds.length === correctChoiceIds.length && 
+                selectedChoiceIds.every(id => correctChoiceIds.includes(id));
+ 
+         const originalVerify = this.questionPane.verify; 
+            this.questionPane.verify = () => {}; 
+            setTimeout(() => {
+                this.questionPane.verify = originalVerify;
+            }, 100);
+
+            break;
+        }
         case "MATCH_THE_FOLLOWING": {
           if (this.originalQuestions) {
             const originalQuestion = this.originalQuestions.find(
