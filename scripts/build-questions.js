@@ -70,6 +70,8 @@ function transformMarkdown(filePath) {
     explanation: data.explanation || "",
   };
 
+  checkDuplicates(data.matches || [], "matches");
+  checkDuplicates([...(data.choices || []), ...(data.matches || [])], "choices + matches");
   if (Array.isArray(data.matches)) {
     question.type = "MATCH_THE_FOLLOWING";
     if (Array.isArray(data.choices)) {
@@ -78,7 +80,10 @@ function transformMarkdown(filePath) {
     question.matches = data.matches.map((label) => ({ label }));
     return question;
   }
-
+  
+  checkDuplicates(data.choices || [], "choices");
+  checkDuplicates(data.answer || [], "answers");
+  checkDuplicates([...(data.choices || []), ...(data.answer || [])], "choices + answers");
   const answerSet = new Set(data.answer || []);
   const rawChoices = new Set([...(data.choices || []), ...(data.answer || [])]);
 
@@ -93,6 +98,13 @@ function transformMarkdown(filePath) {
   }
 
   return question;
+}
+
+function checkDuplicates(arr, fieldName) {
+  const set = new Set(arr);
+  if (set.size !== arr.length) {
+    throw new Error(`Duplicate values found in ${fieldName}: ${arr}`);
+  }
 }
 
 function buildAll() {
