@@ -20,6 +20,11 @@ const QUESTIONS_DIR = process.env.QUESTIONS_FOLDER
   ? path.resolve(process.env.QUESTIONS_FOLDER)
   : "questions";
 
+// Configurable Public/Output folder
+const PUBLIC_DIR = process.env.PUBLIC_FOLDER
+  ? path.resolve(process.env.PUBLIC_FOLDER)
+  : "public";
+
 // === Schema for validation ===
 const schema = {
   type: "object",
@@ -109,7 +114,6 @@ function buildAll() {
 
     const name = match[1];
     const locale = match[2] || "default";
-    const outDir = path.join("dist", "data", dir);
 
     const question = transformMarkdown(file);
     const result = validate(question, schema);
@@ -142,7 +146,8 @@ function buildAll() {
   }
 
   for (const dir in grouped) {
-    const outDir = path.join("dist", "data", dir);
+    // Replaced "public" with PUBLIC_DIR
+    const outDir = path.join(PUBLIC_DIR, "data", dir);
     fs.mkdirSync(outDir, { recursive: true });
 
     const questions = Object.keys(grouped[dir])
@@ -181,7 +186,8 @@ function buildAll() {
         }
       }
 
-      const outDir = path.join("dist", "data", dir);
+      // Replaced "public" with PUBLIC_DIR
+      const outDir = path.join(PUBLIC_DIR, "data", dir);
       fs.mkdirSync(outDir, { recursive: true });
       fs.writeFileSync(
         path.join(outDir, `questions_${locale}.json`),
@@ -199,8 +205,9 @@ function buildAll() {
     const tokens = dir.split(path.sep);
     if (tokens.length > 3) {
       const dirName = tokens[tokens.length - 1];
+      // Replaced "public" with PUBLIC_DIR
       const parentDir = path.join(
-        "dist",
+        PUBLIC_DIR,
         "data",
         dir.replace(path.sep + dirName, "")
       );
