@@ -298,22 +298,20 @@ export default class PracticeScreen {
 
       if (isCorrect) {
         this.questionPane.verify(true);
-        if (!silentMode) {
-          window.success("Correct Answer");
-        }
+        
         if (this.explainToggleBtn) {
-          this.explainToggleBtn.classList.remove("btn-outline-danger");
-          this.explainToggleBtn.classList.add("btn-outline-success");
+          this.explainToggleBtn.firstElementChild.innerHTML = "Correct Answer"
+          this.explainToggleBtn.classList.remove("btn-danger");
+          this.explainToggleBtn.classList.add("btn-success");
           this.explainToggleBtn.classList.remove("d-none");
         }
       } else {
         this.questionPane.verify(false);
-        if (!silentMode) {
-          window.error("Wrong Answer");
-        }
+        
         if (this.explainToggleBtn) {
-          this.explainToggleBtn.classList.remove("btn-outline-success");
-          this.explainToggleBtn.classList.add("btn-outline-danger");
+          this.explainToggleBtn.firstElementChild.innerHTML = "Wrong Answer |"
+          this.explainToggleBtn.classList.remove("btn-success");
+          this.explainToggleBtn.classList.add("btn-danger");
           this.explainToggleBtn.classList.remove("d-none");
         }
       }
