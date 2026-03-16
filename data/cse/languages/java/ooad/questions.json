@@ -4,6 +4,18 @@
     "explanation": "In Java, an interface can extend multiple interfaces. Private methods were added in Java 9, but an interface cannot have constructors.",
     "choices": [
       {
+        "label": "An interface can have private methods.",
+        "answer": false
+      },
+      {
+        "label": "A class can extend multiple interfaces.",
+        "answer": false
+      },
+      {
+        "label": "An interface can have constructors.",
+        "answer": false
+      },
+      {
         "label": "An interface can extend multiple interfaces.",
         "answer": true
       }
@@ -14,8 +26,22 @@
     "question": "Which of the following are core OOP principles?",
     "explanation": "These are the two primary OOP principles.",
     "choices": [
-      { "label": "Encapsulation", "answer": true },
-      { "label": "Inheritance", "answer": true }
+      {
+        "label": "Polymorphism",
+        "answer": false
+      },
+      {
+        "label": "Abstraction",
+        "answer": false
+      },
+      {
+        "label": "Encapsulation",
+        "answer": true
+      },
+      {
+        "label": "Inheritance",
+        "answer": true
+      }
     ],
     "type": "MULTI_CHOICE"
   }
