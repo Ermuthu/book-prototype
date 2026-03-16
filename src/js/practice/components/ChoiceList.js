@@ -122,33 +122,43 @@ export default class ChoiceList {
     });
   }
 
-  verify(success) {
-    if (success) {
-      if (this.isMatches) {
-        this._element.querySelectorAll("li").forEach((liEl) => {
-          liEl.classList.add("bg-success");
-        });
-      } else {
-        this._element.querySelectorAll("li").forEach((liEl) => {
-          const input = liEl.querySelector("input");
-          if (input.checked) {
-            liEl.classList.add("bg-success");
-          }
-        });
-      }
+ verify(success) {
+  if (success) {
+    if (this.isMatches) {
+      this._element.querySelectorAll("li").forEach((liEl) => {
+        liEl.classList.add("bg-success", "text-white");
+        liEl.classList.remove("bg-danger", "text-black");
+      });
     } else {
-      if (this.isMatches) {
-        this._element.querySelectorAll("li").forEach((liEl) => {
-          liEl.classList.add("bg-danger");
-        });
-      } else {
-        this._element.querySelectorAll("li").forEach((liEl) => {
-          const input = liEl.querySelector("input");
-          if (input.checked) {
-            liEl.classList.add("bg-danger");
-          }
-        });
-      }
+      this._element.querySelectorAll("li").forEach((liEl) => {
+        const input = liEl.querySelector("input");
+        if (input.checked) {
+          liEl.classList.add("bg-success", "text-white");
+          liEl.classList.remove("bg-danger", "text-black");
+        } else {
+          liEl.classList.remove("bg-success", "bg-danger", "text-white");
+          liEl.classList.add("text-black");
+        }
+      });
+    }
+  } else {
+    if (this.isMatches) {
+      this._element.querySelectorAll("li").forEach((liEl) => {
+        liEl.classList.add("bg-danger", "text-white");
+        liEl.classList.remove("bg-success", "text-black");
+      });
+    } else {
+      this._element.querySelectorAll("li").forEach((liEl) => {
+        const input = liEl.querySelector("input");
+        if (input.checked) {
+          liEl.classList.add("bg-danger", "text-white");
+          liEl.classList.remove("bg-success", "text-black");
+        } else {
+          liEl.classList.remove("bg-success", "bg-danger", "text-white");
+          liEl.classList.add("text-black");
+        }
+      });
     }
   }
+}
 }
