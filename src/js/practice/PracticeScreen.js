@@ -16,11 +16,11 @@ export default class PracticeScreen {
 
     if (docsIndex !== -1) {
 
-        // 1. Take everything BEFORE /docs: path.substring(0, docsIndex)
-        // 2. Append /data/
-        let newPath = path.substring(0, docsIndex) + '/data/';
+      // 1. Take everything BEFORE /docs: path.substring(0, docsIndex)
+      // 2. Append /data/
+      let newPath = path.substring(0, docsIndex) + '/data/';
 
-        newPath = newPath.replace(`/${languageCode}/data`, '/data');
+      newPath = newPath.replace(`/${languageCode}/data`, '/data');
 
         this.questionsUrl = `${url.origin}${newPath}`+ category;
     } else {
@@ -242,37 +242,37 @@ export default class PracticeScreen {
             .split(",")
             .map((id) => id.trim())
             .sort();
-    
 
-    const choiceListElement = this.questionPane.mcqList.element;
-    const listItems = choiceListElement.querySelectorAll("li");
-    listItems.forEach((liEl) => {
-        const input = liEl.querySelector("input");
-        const choiceId = input.value;
 
-        if (input.checked) {
-            if (correctChoiceIds.includes(choiceId)) {
-             
+          const choiceListElement = this.questionPane.mcqList.element;
+          const listItems = choiceListElement.querySelectorAll("li");
+          listItems.forEach((liEl) => {
+            const input = liEl.querySelector("input");
+            const choiceId = input.value;
+
+            if (input.checked) {
+              if (correctChoiceIds.includes(choiceId)) {
+
                 liEl.classList.add("bg-success");
                 liEl.classList.remove("bg-danger");
-            } else {
-           
+              } else {
+
                 liEl.classList.add("bg-danger");
                 liEl.classList.remove("bg-success");
+              }
             }
-        }
-    });
+          });
 
-    isCorrect = selectedChoiceIds.length === correctChoiceIds.length && 
-                selectedChoiceIds.every(id => correctChoiceIds.includes(id));
- 
-         const originalVerify = this.questionPane.verify; 
+          isCorrect = selectedChoiceIds.length === correctChoiceIds.length &&
+            selectedChoiceIds.every(id => correctChoiceIds.includes(id));
+
+          const originalVerify = this.questionPane.verify;
             this.questionPane.verify = () => {}; 
-            setTimeout(() => {
-                this.questionPane.verify = originalVerify;
-            }, 100);
+          setTimeout(() => {
+            this.questionPane.verify = originalVerify;
+          }, 100);
 
-            break;
+          break;
         }
         case "MATCH_THE_FOLLOWING": {
           if (this.originalQuestions) {
@@ -300,7 +300,7 @@ export default class PracticeScreen {
         this.questionPane.verify(true);
         
         if (this.explainToggleBtn) {
-          this.explainToggleBtn.firstElementChild.innerHTML = "Correct Answer"
+          this.explainToggleBtn.firstElementChild.innerHTML = "Correct Answer |"
           this.explainToggleBtn.classList.remove("btn-danger");
           this.explainToggleBtn.classList.add("btn-success");
           this.explainToggleBtn.classList.remove("d-none");
@@ -328,7 +328,7 @@ export default class PracticeScreen {
       if  (classList.contains("bi-check")) {
         this.checkBtn = element.parentElement;
         element.parentElement.addEventListener("click", () => this.doCheck());
-      } 
+      }
     });
 
     navPane.querySelectorAll("i").forEach((element) => {
