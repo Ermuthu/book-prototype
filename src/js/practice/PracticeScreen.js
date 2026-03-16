@@ -246,20 +246,21 @@ export default class PracticeScreen {
 
           const choiceListElement = this.questionPane.mcqList.element;
           const listItems = choiceListElement.querySelectorAll("li");
-          listItems.forEach((liEl) => {
+           listItems.forEach((liEl) => {
             const input = liEl.querySelector("input");
             const choiceId = input.value;
 
             if (input.checked) {
               if (correctChoiceIds.includes(choiceId)) {
-
-                liEl.classList.add("bg-success");
-                liEl.classList.remove("bg-danger");
+                liEl.classList.add("bg-success", "text-white");
+                liEl.classList.remove("bg-danger", "text-black");
               } else {
-
-                liEl.classList.add("bg-danger");
-                liEl.classList.remove("bg-success");
+                liEl.classList.add("bg-danger", "text-white");
+                liEl.classList.remove("bg-success", "text-black");
               }
+            } else {
+              liEl.classList.remove("bg-success", "bg-danger", "text-white");
+              liEl.classList.add("text-black");
             }
           });
 
@@ -298,7 +299,7 @@ export default class PracticeScreen {
 
       if (isCorrect) {
         this.questionPane.verify(true);
-        
+
         if (this.explainToggleBtn) {
           this.explainToggleBtn.firstElementChild.innerHTML = "Correct Answer |"
           this.explainToggleBtn.classList.remove("btn-danger");
@@ -307,7 +308,7 @@ export default class PracticeScreen {
         }
       } else {
         this.questionPane.verify(false);
-        
+
         if (this.explainToggleBtn) {
           this.explainToggleBtn.firstElementChild.innerHTML = "Wrong Answer |"
           this.explainToggleBtn.classList.remove("btn-success");
