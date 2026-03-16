@@ -54,18 +54,12 @@ export default class ChoiceList {
         liEl
           .querySelector("i.bi-arrow-down")
           .addEventListener("click", (event) => {
-            const liEl =
-              event.currentTarget.parentElement.parentElement.parentElement;
-
+            const liEl = event.currentTarget.closest("li");
             const ulNode = liEl.parentNode;
-
-            if (liEl.parentElement.lastChild === liEl) {
-              ulNode.insertBefore(liEl, ulNode.firstChild);
+            if (liEl === ulNode.lastElementChild) {
+              ulNode.insertBefore(liEl, ulNode.firstElementChild);
             } else {
-              liEl.parentNode.insertBefore(
-                liEl,
-                liEl.nextElementSibling.nextElementSibling
-              );
+              ulNode.insertBefore(liEl.nextElementSibling, liEl);
             }
           });
 
