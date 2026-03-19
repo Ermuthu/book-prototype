@@ -84,7 +84,7 @@ export default class QuestionPane {
 
     this.questionContainer.innerHTML = this.mdEditor.markdown(_question.question);
 
-    this.explanationContainer.innerHTML = this.mdEditor.markdown(_question.explanation);
+    this.explanationContainer.innerHTML = this.mdEditor.markdown(_question.explanation ? _question.explanation : "");
 
     // this.answerContainer.innerHTML = '';
 
