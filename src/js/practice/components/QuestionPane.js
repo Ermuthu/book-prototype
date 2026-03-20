@@ -1,6 +1,6 @@
 import ChoiceList from "./ChoiceList";
 import EasyMDE from "easymde";
-
+import renderMathInElement from 'katex/dist/contrib/auto-render';
 export default class QuestionPane {
   
   constructor(_suffleFn) {
@@ -83,6 +83,13 @@ export default class QuestionPane {
     // );
 
     this.questionContainer.innerHTML = this.mdEditor.markdown(_question.question);
+
+    renderMathInElement(this.questionContainer, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ]
+    });
 
     this.explanationContainer.innerHTML = this.mdEditor.markdown(_question.explanation ? _question.explanation : "");
 

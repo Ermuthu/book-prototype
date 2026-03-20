@@ -38,6 +38,7 @@
   "dependencies": {
     "easymde": "^2.20.0",
     "highlight.js": "^11.11.1",
+    "katex": "^0.16.39",
     "markdown-it": "^14.1.0",
     "quill": "^2.0.3"
   }
