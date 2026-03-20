@@ -324,7 +324,13 @@ export default class PracticeScreen {
     const navPane = document.getElementById("navPane");
     const fabPane = document.getElementById("fabPane");
 
-    fabPane.querySelector("#verifyBtn").addEventListener("click", () => this.doCheck());
+    fabPane.querySelectorAll("i").forEach((element) => {
+      const classList = element.classList;
+      if  (classList.contains("bi-check")) {
+        this.checkBtn = element.parentElement;
+        element.parentElement.addEventListener("click", () => this.doCheck());
+      }
+    });
 
     navPane.querySelectorAll("i").forEach((element) => {
       const classList = element.classList;
