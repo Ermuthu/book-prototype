@@ -1,1 +1,11 @@
-[{"question":"## Match the following","choices":[{"label":"Collection Streams API"},{"label":"Buffered Reader"},{"label":"Container"}],"type":"CHOOSE_THE_BEST"}]
+[
+  {
+    "question": "## Match the following",
+    "choices": [
+      { "label": "Collection Streams API" },
+      { "label": "Buffered Reader" },
+      { "label": "Container" }
+    ],
+    "type": "CHOOSE_THE_BEST"
+  }
+]
