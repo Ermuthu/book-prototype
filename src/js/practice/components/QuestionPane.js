@@ -93,7 +93,12 @@ export default class QuestionPane {
 
     this.explanationContainer.innerHTML = this.mdEditor.markdown(_question.explanation ? _question.explanation : "");
 
-    // this.answerContainer.innerHTML = '';
+    renderMathInElement(this.explanationContainer, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ]
+    });
 
     this.questionContainer.classList.remove('d-none');
     this.matcheContainer.classList.add('d-none');
