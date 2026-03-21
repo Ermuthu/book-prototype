@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top">
+  <div class="container-fluid">
+    <span class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <i class="bi bi-list me-2 fs-4" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas"
+        aria-controls="sidebarOffcanvas" aria-label="Toggle menu"></i>
+        <div class="d-flex flex-column"><a href=" {{ site.Home.RelPermalink }}"
+        class="h5 text-decoration-none mb-0">
+        <strong>{{ .Site.Title }}</strong>
+     </a>
+
+          {{ if hugo.IsMultilingual }}
+            <div class="text-muted text-end dropdown">
+              <small class="dropdown-toggle" type="button" id="languageBtn" data-bs-toggle="dropdown" aria-expanded="false" data-code="{{$.Site.Home.Language.Lang}}">
+                {{$.Site.Home.Language.LanguageName}}
+              </small>
+              <ul class="dropdown-menu" aria-labelledby="languageBtn">
+                {{ range .Translations }}
+                <li>
+                  <a class="dropdown-item" data-code="{{.Language.Lang}}" href="{{ .Permalink }}">
+                    {{ .Language.LanguageName }}
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          {{ end }}
+         
+      </div>
+    </span>
+
+    <div class="d-flex align-items-center ms-auto">
+      <button class="btn bi bi-link-45deg fs-5 px-2" title="References" data-bs-toggle="offcanvas"
+        data-bs-target="#referencepanel" aria-controls="referencepanel"></button>
+
+      <button class="btn bi bi-camera-reels fs-5 px-2" title="Videos"></button>
+
+      <button class="btn bi bi-book fs-5 px-2" title="Books" data-bs-toggle="offcanvas" data-bs-target="#bookspanel"
+        aria-controls="bookspanel"></button>
+
+      <button class="btn bi bi-clipboard2-check fs-5 px-2" title="Practice" data-bs-toggle="offcanvas"
+        data-bs-target="#practicepanel" aria-controls="practicepanel"></button>
+    </div>
+  </div>
+</nav>

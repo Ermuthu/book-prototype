@@ -1,18 +1,1 @@
-[
-  {
-    "question": "## Match the following",
-    "explanation": "Design patterns and related APIs.",
-    "type": "MATCH_THE_FOLLOWING",
-    "choices": [
-      { "label": "Collection Streams API" },
-      { "label": "Buffered Reader" },
-      { "label": "Container" }
-    ],
-    "matches": [
-      { "label": "Builder" },
-      { "label": "Decorator" },
-      { "label": "Composite" },
-      { "label": "Visitor" }
-    ]
-  }
-]
+[{"question":"## Match the following","choices":[{"label":"Collection Streams API"},{"label":"Buffered Reader"},{"label":"Container"}],"type":"CHOOSE_THE_BEST"}]
