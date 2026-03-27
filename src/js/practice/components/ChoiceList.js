@@ -2,6 +2,8 @@ import radioList from '../../_partials/radioList.html'
 import checkboxList from '../../_partials/checkboxList.html'
 import matchesList from '../../_partials/matchesList.html'
 
+import renderMathInElement from 'katex/dist/contrib/auto-render';
+
 export default class ChoiceList {
   constructor(isPracticeMode, templateName, choices, keepOrder) {
 
@@ -75,6 +77,14 @@ export default class ChoiceList {
         const clabel = liEl.querySelector("label");
         clabel.htmlFor = choice.id;
         clabel.querySelector("span").textContent = choice.label;
+
+        renderMathInElement(clabel.querySelector("span"), {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ]
+        });
+
         if (isPracticeMode) {
           input.checked = choice.answer;
         }

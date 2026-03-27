@@ -17,7 +17,7 @@
     "question": "Which of the following are core OOP principles?\n\n\n<div class=\"math-display\">$\n\\tau = F \\times d \\quad ...(1.2)\n$</div>\n",
     "choices": [
       { "label": "Polymorphism" },
-      { "label": "Abstraction" },
+      { "label": "Abstraction $\n\\tau = F \\times d \\quad ...(1.2)\n$" },
       { "label": "Encapsulation", "answer": true },
       { "label": "Inheritance", "answer": true }
     ],
