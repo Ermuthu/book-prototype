@@ -70,10 +70,10 @@ export default class PracticeScreen {
       const finalQs = localizedQs
         ? resolveLocalized(localizedQs, defaultQs)
         : defaultQs;
-
+      
       return this.assignIds(
         finalQs,
-        folderUrl.replace(this.questionsUrl + "/", "")
+        folderUrl.split("/data/")[1]
       );
     };
 
