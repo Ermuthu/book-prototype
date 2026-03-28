@@ -1,11 +1,18 @@
 [
   {
     "question": "## Match the following",
+    "explanation": "Design patterns and related APIs.",
+    "type": "MATCH_THE_FOLLOWING",
     "choices": [
       { "label": "Collection Streams API" },
-      { "label": "Buffered Reader $\n\\tau = F \\times d \\quad ...(1.2)\n$\n" },
+      { "label": "Buffered Reader" },
       { "label": "Container" }
     ],
-    "type": "CHOOSE_THE_BEST"
+    "matches": [
+      { "label": "Builder" },
+      { "label": "Decorator" },
+      { "label": "Composite" },
+      { "label": "Visitor" }
+    ]
   }
 ]
