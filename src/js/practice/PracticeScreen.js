@@ -140,13 +140,23 @@ export default class PracticeScreen {
       primaryAnchor.href = document.referrer;
       primaryAnchor.innerHTML = "Go Back";
     } else {
-      this.setQuestion(0);
+
+      const hash = window.location.hash; // "#q5" or "#123"
+      const idFromHash = hash.replace("#", "");
+      const index = this.questions.findIndex(
+        q => q.id === idFromHash
+      );
+
+      this.setQuestion(index != -1 ? index : 0);
       document.getElementById("notfound").classList.add("d-none");
       document.getElementById("content").classList.remove("d-none");
     }
   }
 
   setQuestion(questionIndex) {
+
+    
+
     // is Practice Mode
     if (this.checkBtn && !this.checkBtn.classList.contains("d-none")) {
       this.explainToggleBtn.classList.add("d-none");
@@ -167,14 +177,21 @@ export default class PracticeScreen {
 
     this.currentQuestionIndex = questionIndex;
     this.questionPane.setQuestion(this.questions[this.currentQuestionIndex]);
+    
   }
 
   doNext() {
     this.setQuestion(this.currentQuestionIndex + 1);
+    this.setQuestionParameter();
   }
 
   doPrevious() {
     this.setQuestion(this.currentQuestionIndex - 1);
+    this.setQuestionParameter();
+  }
+
+  setQuestionParameter() {
+    window.location.hash = this.questions[this.currentQuestionIndex].id;
   }
 
   doExplain(explain) {
